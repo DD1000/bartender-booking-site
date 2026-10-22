@@ -79,6 +79,17 @@
       for (let i = 1; i < n; i++) re[i] = (2 / (i * Math.PI)) * Math.sin(i * Math.PI * duty);
       return ctx.createPeriodicWave(re, im);
     }
+    // Phones only allow sound once a tap has started it. Playing an inaudible
+    // one-sample buffer inside the tap is what unlocks iPhones; asking for a
+    // "playback" session (iOS 17+) keeps the silent switch from muting it.
+    function wake() {
+      if (navigator.audioSession) { try { navigator.audioSession.type = 'playback'; } catch {} }
+      const blip = ctx.createBufferSource();
+      blip.buffer = ctx.createBuffer(1, 1, ctx.sampleRate);
+      blip.connect(ctx.destination);
+      blip.start(0);
+      return ctx.resume();
+    }
     function init() {
       ctx = new (window.AudioContext || window.webkitAudioContext)();
       out = ctx.createGain(); out.gain.value = 0;
@@ -165,7 +176,7 @@
       start() {
         if (!ctx) init();
         on = true;
-        ctx.resume();
+        wake();
         if (!timer) { nextTime = ctx.currentTime + 0.08; timer = setInterval(tick, 30); }
         out.gain.cancelScheduledValues(ctx.currentTime);
         out.gain.setTargetAtTime(VOL, ctx.currentTime, 0.8);
@@ -177,7 +188,8 @@
         out.gain.setTargetAtTime(0, ctx.currentTime, 0.12);
         setTimeout(() => { if (!on) { clearInterval(timer); timer = null; ctx.suspend(); } }, 600);
       },
-      resume() { if (on && ctx && ctx.state !== 'running') ctx.resume(); },
+      get running() { return !!ctx && ctx.state === 'running'; },
+      resume() { return on && ctx && ctx.state !== 'running' ? wake() : Promise.resolve(); },
       // short chiptune stings for the easter eggs; silent when music is off
       sting(notes, len = 0.08) {
         if (!on || !ctx) return;
@@ -194,17 +206,25 @@
     $('#musicState').textContent = want ? ' on' : ' off';
     store.set('music', want ? 'on' : 'off');
   }
-  musicBtn.addEventListener('click', () => setMusic(!Music.on));
+  musicBtn.addEventListener('click', () => {
+    // "Music on" but still silent (no tap yet on a phone): this tap starts it
+    if (Music.on && !Music.running) { Music.resume(); return; }
+    setMusic(!Music.on);
+  });
   // Auto-play unless the visitor turned it off before. Browsers hold audio until the
   // first tap or key press, so the music begins at that moment.
   if (store.get('music') !== 'off') {
     setMusic(true);
+    // Keep trying on each tap or key until the sound is really running: on phones
+    // the first event of a tap (pointerdown) doesn't count, the touchend after it does.
+    const UNLOCK = ['touchend', 'click', 'keydown', 'pointerup'];
+    const stop = () => UNLOCK.forEach((ev) => removeEventListener(ev, unlock, true));
     const unlock = (e) => {
+      if (!Music.on) return stop();
       if (musicBtn.contains(e.target)) return; // the button handles itself
-      Music.resume();
-      ['pointerdown', 'keydown', 'touchend'].forEach((ev) => removeEventListener(ev, unlock, true));
+      Music.resume().then(() => { if (Music.running) stop(); }, () => {});
     };
-    ['pointerdown', 'keydown', 'touchend'].forEach((ev) => addEventListener(ev, unlock, true));
+    UNLOCK.forEach((ev) => addEventListener(ev, unlock, true));
   }
 
   // ── easter egg: the logo ────────────────────
