@@ -6,6 +6,13 @@ window.SITE = {
   // Shown in the header, page title and fighter card.
   name: "Q",
 
+  // The site's look: one of the ids in themes.js (arcade, deco, tiki, versus, manga,
+  // neon, wedding, lofi, chalk, zine, disco).
+  style: "arcade",
+  // While choosing, a "Style" button lets visitors flip through every look.
+  // Set to false once the style is picked.
+  showStylePicker: true,
+
   rate: 50,   // dollars per hour
   years: 12,  // years of experience
 

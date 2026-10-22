@@ -7,10 +7,19 @@ It's plain HTML. No build step and nothing to install.
 ## Make it yours (5 minutes)
 
 1. **Your details:** open `config.js` and fill in your name, the email that should get booking requests, and your ABC licence number, issuer and expiry date. Every page element reads from that file.
-2. **Your photo:** add a portrait photo to this folder named `photo.jpg`. It shows in the hero and, pixelated, on the fighter card. Until you add one, the page shows "Photo coming soon".
+2. **Your photo:** add a portrait photo to this folder named `photo.jpg`. It shows in the hero and on the fighter card (pixelated in the Arcade Bar style). Until you add one, the page shows "Photo coming soon".
 3. **Turn on booking emails:** submit one test request from the live site. FormSubmit sends a one-time "Activate form" email to the address in `config.js`. Click it, and every request after that arrives in your inbox as a table.
    - To keep your real email out of the page source, FormSubmit's activation email also gives you a random alias string. Paste that into `email` in place of your address.
 4. **Optional:** add a Calendly/Cal.com link (`calendarLink`), your Instagram, or a scan of your certificate (`abc.proof`).
+
+## Styles
+
+The site comes in 11 styles with the same content: Arcade Bar (pixel), Speakeasy, Tiki Pool Party, Versus, Manga Izakaya, Neon Dive Bar, Champagne, Lo-fi Sunset, Chalkboard, Punk Flyer and 70s Disco.
+
+- While choosing, the **Style** button in the bottom corner flips between them. Every switch updates the address, so a link like `…/?style=disco` opens straight into that look.
+- To lock one in: set `style` in `config.js` to its id and `showStylePicker` to `false`.
+- Each style is one file in `themes/`; the layout they share is `base.css`, and the list lives in `themes.js`.
+- Arcade Bar, Tiki, Versus and Punk Flyer play the chiptune version of the music; the rest play a softer lo-fi version.
 
 ## Put it online (GitHub Pages, free)
 

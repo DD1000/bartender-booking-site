@@ -1,0 +1,89 @@
+/* Neon Dive Bar: neon tubes on brick */
+:root[data-theme="neon"] {
+  color-scheme: dark;
+  --bg: #2A1A1D;
+  --bg-image:
+    radial-gradient(120% 80% at 50% 0%, transparent 40%, rgba(0,0,0,.55) 100%),
+    linear-gradient(rgba(0,0,0,.42) 3px, transparent 3px) 0 0 / 72px 34px,
+    linear-gradient(90deg, rgba(0,0,0,.42) 3px, transparent 3px) 0 0 / 72px 68px,
+    linear-gradient(90deg, rgba(0,0,0,.42) 3px, transparent 3px) 36px 34px / 72px 68px;
+  --surface: #2A1A20;
+  --line: #4E2F38;
+  --leader: #6A4250;
+  --ink: #F7EEF5;
+  --ink-dim: #CDB9C6;
+  --accent: #FF3EA5;
+  --accent-ink: #2A0016;
+  --accent-2: #47E5FF;
+  --body: "Manrope", system-ui, sans-serif;
+  --display: "Tilt Neon", system-ui, sans-serif;
+  --fight: "Tilt Neon", system-ui, sans-serif;
+  --fight-weight: 400;
+  --fs: .82;
+  --name-weight: 400;
+  --name-ink: #FFE3F3;
+  --name-shadow: 0 0 4px #fff, 0 0 12px #FF3EA5, 0 0 28px #FF3EA5, 0 0 52px #FF3EA5;
+  --name-size: clamp(3.6rem, 10vw, 7.5rem);
+  --name-short-size: clamp(10rem, 30vw, 17rem);
+  --heading-weight: 400;
+  --heading-tracking: .01em;
+  --logo-weight: 400;
+  --radius: 18px;
+  --top-bg: rgba(30, 18, 22, .9);
+  --photo-radius: 18px;
+  --photo-border: 3px solid #47E5FF;
+  --photo-shadow: 0 0 18px #47E5FF, inset 0 0 18px rgba(71,229,255,.4);
+  --photo-q: #4E2F38;
+  --card-bg: #160E12;
+  --card-border: 3px solid #FF3EA5;
+  --card-radius: 24px;
+  --card-shadow: 0 0 26px rgba(255,62,165,.55), inset 0 0 26px rgba(255,62,165,.22);
+  --card-ink: #F7EEF5;
+  --card-dim: #D3C1CC;
+  --card-accent: #47E5FF;
+  --card-accent-ink: #021A20;
+  --card-accent-2: #FF6CBB;
+  --card-title-shadow: 0 0 6px #47E5FF, 0 0 22px #47E5FF;
+  --portrait-radius: 16px;
+  --portrait-border: 3px solid #FF3EA5;
+  --portrait-shadow: 0 0 20px rgba(255,62,165,.7);
+  --portrait-bg: #22141A;
+  --select-radius: 999px;
+  --select-shadow: 0 0 18px rgba(71,229,255,.7);
+  --bar-bg: rgba(255,255,255,.04);
+  --bar-border: 2px solid rgba(71,229,255,.6);
+  --bar-radius: 999px;
+  --bar-fill: #47E5FF;
+  --bar-max-fill: #FF3EA5;
+  --bio-bg: rgba(255,255,255,.04);
+  --bio-radius: 10px;
+  --ticket-bg: #23161C;
+  --ticket-ink: #F7EEF5;
+  --ticket-dim: #CDB9C6;
+  --ticket-tear: none;
+  --ticket-radius: 22px;
+  --ticket-border: 2px solid #47E5FF;
+  --ticket-shadow: 0 0 26px rgba(71,229,255,.35);
+  --field-bg: #170E12;
+  --field-border: #5A3A48;
+  --field-radius: 10px;
+  --ticket-btn: #FF3EA5;
+  --ticket-btn-ink: #2A0016;
+  --total-weight: 400;
+  --ok: #6CF0A0;
+  --err: #FF8A9A;
+  --toast-bg: #FF3EA5;
+  --toast-ink: #2A0016;
+  --egg-bg: #FF3EA5;
+  --egg-fact-bg: #160E12;
+  --combo-ink: #47E5FF;
+  --combo-shadow: #FF3EA5;
+}
+html[data-theme="neon"] h2.plain { text-shadow: 0 0 4px rgba(255,255,255,.7), 0 0 16px #47E5FF; }
+html[data-theme="neon"] .ticket h2.plain { text-shadow: 0 0 14px #47E5FF; }
+html[data-theme="neon"] .bar i { box-shadow: 0 0 10px currentColor; color: #47E5FF; }
+html[data-theme="neon"] .name { animation: neon-on 1.4s ease-out 1; }
+html[data-theme="neon"] .field input:focus,
+html[data-theme="neon"] .field select:focus,
+html[data-theme="neon"] .field textarea:focus { border-color: #47E5FF; }
+@keyframes neon-on { 0%, 18%, 22%, 40% { opacity: .25; text-shadow: none; } 20%, 45%, 100% { opacity: 1; } }

@@ -1,0 +1,98 @@
+/* Manga Izakaya: ink panels, screentone, a red lantern */
+:root[data-theme="manga"] {
+  color-scheme: light;
+  --bg: #FAFAF7;
+  --bg-image: radial-gradient(rgba(0,0,0,.07) 1px, transparent 1.4px) 0 0 / 8px 8px;
+  --surface: #FFFFFF;
+  --line: #111111;
+  --leader: #9A9A9A;
+  --ink: #111111;
+  --ink-dim: #4A4A4A;
+  --accent: #D7263D;
+  --accent-ink: #FFFFFF;
+  --accent-2: #111111;
+  --link: #B01B30;
+  --ghost-ink: #B01B30;
+  --focus: #111111;
+  --body: "Zen Kaku Gothic New", system-ui, sans-serif;
+  --display: "Dela Gothic One", Impact, sans-serif;
+  --fight: "Dela Gothic One", Impact, sans-serif;
+  --fight-weight: 400;
+  --fight-tracking: .02em;
+  --fs: .68;
+  --name-weight: 400;
+  --name-ink: #111111;
+  --name-size: clamp(3.4rem, 9vw, 7rem);
+  --name-short-size: clamp(10rem, 28vw, 16rem);
+  --name-short-lh: 1;
+  --heading-weight: 400;
+  --heading-tracking: 0;
+  --logo-weight: 400;
+  --radius: 0;
+  --btn-radius: 0;
+  --btn-shadow: 4px 4px 0 #111;
+  --top-bg: rgba(250, 250, 247, .94);
+  --top-border: 3px solid #111;
+  --photo-radius: 0;
+  --photo-border: 4px solid #111;
+  --photo-shadow: 10px 10px 0 #111;
+  --photo-transform: rotate(-1.5deg);
+  --photo-q: #D9D9D9;
+  --card-bg: repeating-conic-gradient(from 0deg at 22% 38%, #FFFFFF 0 3deg, #EDEDED 3deg 6deg);
+  --card-border: 4px solid #111;
+  --card-radius: 0;
+  --card-shadow: 10px 10px 0 #111;
+  --card-ink: #111111;
+  --card-dim: #333333;
+  --card-accent: #D7263D;
+  --card-accent-ink: #FFFFFF;
+  --card-accent-2: #111111;
+  --card-title-shadow: 3px 3px 0 #111;
+  --portrait-border: 4px solid #111;
+  --portrait-shadow: 6px 6px 0 #D7263D;
+  --portrait-bg: #FFFFFF;
+  --select-radius: 0;
+  --select-shadow: 4px 4px 0 #111;
+  --bar-bg: #FFFFFF;
+  --bar-border: 3px solid #111;
+  --bar-fill: repeating-linear-gradient(45deg, #D7263D 0 4px, #E9566A 4px 8px);
+  --bar-max-fill: radial-gradient(#fff 1px, transparent 1.6px) 0 0 / 6px 6px, #111;
+  --bio-bg: #FFFFFF;
+  --ticket-bg: #FFFFFF;
+  --ticket-ink: #111111;
+  --ticket-dim: #4A4A4A;
+  --ticket-tear: none;
+  --ticket-radius: 0;
+  --ticket-border: 4px solid #111;
+  --ticket-shadow: 10px 10px 0 #D7263D;
+  --field-bg: #FFFFFF;
+  --field-border: #111111;
+  --field-radius: 0;
+  --ticket-btn: #D7263D;
+  --ticket-btn-ink: #FFFFFF;
+  --total-weight: 400;
+  --toast-bg: #111111;
+  --toast-ink: #FFFFFF;
+  --egg-bg: #FFD400;
+  --egg-fact-bg: #111111;
+  --combo-ink: #D7263D;
+  --combo-shadow: #111;
+}
+/* 乾杯 ("kanpai", cheers) runs down beside the photo like a lantern sign */
+html[data-theme="manga"] .photo::after {
+  content: "乾杯"; position: absolute; top: -18px; left: -26px; z-index: 2;
+  writing-mode: vertical-rl; padding: 14px 8px;
+  background: #D7263D; color: #fff; border: 3px solid #111;
+  font: 400 1.8rem/1 var(--display); letter-spacing: .2em;
+}
+/* the bio is a speech bubble */
+html[data-theme="manga"] .bio {
+  position: relative; border: 3px solid #111; border-radius: 26px; padding: 16px 20px; margin-top: 8px;
+}
+html[data-theme="manga"] .bio::before {
+  content: ""; position: absolute; left: 34px; top: -16px; width: 26px; height: 16px;
+  background: #111; clip-path: polygon(0 100%, 30% 0, 100% 100%);
+}
+html[data-theme="manga"] .menu b { font-family: var(--display); font-weight: 400; }
+html[data-theme="manga"] .menu li { border-bottom-width: 2px; }
+@media (max-width: 520px) { html[data-theme="manga"] .photo::after { left: -8px; font-size: 1.4rem; } }

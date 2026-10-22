@@ -1,0 +1,78 @@
+/* Arcade Bar: pixel arcade on a mahogany bar */
+:root[data-theme="arcade"] {
+  color-scheme: dark;
+  --bg: #2B1410;
+  --bg-image:
+    repeating-linear-gradient(92deg, rgba(0,0,0,.10) 0 2px, transparent 2px 9px),
+    repeating-linear-gradient(88deg, rgba(255,200,150,.025) 0 1px, transparent 1px 23px);
+  --surface: #3A1D17;
+  --line: #4A271F;
+  --ink: #F6E7D2;
+  --ink-dim: #CDB8A0;
+  --accent: #F2A33A;
+  --accent-ink: #2B1410;
+  --accent-2: #E0313E;
+  --focus: #FFD400;
+  --body: "Bricolage Grotesque", system-ui, sans-serif;
+  --display: "Jersey 10", ui-monospace, monospace;
+  --heading: var(--body);
+  --fight: "Jersey 10", ui-monospace, monospace;
+  --fight-weight: 400;
+  --name-weight: 400;
+  --name-size: clamp(4.2rem, 13vw, 9.5rem);
+  --name-short-size: clamp(10rem, 34vw, 19rem);
+  --name-lh: .82;
+  --name-shadow: .045em .045em 0 #E0313E;
+  --logo-font: "Jersey 10", monospace;
+  --logo-weight: 400;
+  --logo-size: 1.6rem;
+  --top-bg: rgba(43, 20, 16, .92);
+  --eq-ease: steps(4);
+  --photo-border: 2px solid #F6E7D2;
+  --photo-shadow: 12px 12px 0 #F2A33A;
+  --photo-q: #4A271F;
+  --card-bg: radial-gradient(120% 90% at 50% 0%, #2B3FC2 0%, #1B2A8C 45%, #0F1856 100%);
+  --card-border: 6px solid #0A0A1A;
+  --card-shadow: inset 0 0 80px rgba(0,0,0,.55), 0 0 0 2px #4A271F;
+  --card-overlay: repeating-linear-gradient(0deg, rgba(0,0,0,.22) 0 2px, transparent 2px 4px);
+  --card-ink: #FFFFFF;
+  --card-dim: #DCE1FF;
+  --card-accent: #FFD400;
+  --card-accent-ink: #000;
+  --card-accent-2: #FF7A85;
+  --card-title-shadow: 3px 3px 0 #000;
+  --card-name-shadow: 3px 3px 0 #000;
+  --p1-shadow: 2px 2px 0 #000;
+  --portrait-border: 4px solid #FFD400;
+  --portrait-shadow: 0 0 0 4px #000, 0 0 24px rgba(255, 212, 0, .45);
+  --select-shadow: 0 5px 0 #A88B00;
+  --bar-border: 2px solid #fff;
+  --bar-fill: linear-gradient(180deg, #FFE55C 0 45%, #F2A33A 45% 100%);
+  --bar-max-fill: linear-gradient(180deg, #FF7A85 0 45%, #E0313E 45% 100%);
+  --bar-mask: repeating-linear-gradient(90deg, #000 0 10px, transparent 10px 12px);
+  --bar-ease: steps(18);
+  --bio-bg: rgba(0,0,0,.35);
+  --ticket-bg: #F6E7D2;
+  --ticket-ink: #2B1410;
+  --ticket-dim: #5B3B30;
+  --field-bg: #FFF8EE;
+  --field-border: #C9AE92;
+  --ticket-btn: #2B1410;
+  --ticket-btn-ink: #F6E7D2;
+  --total-font: "Jersey 10", monospace;
+  --total-weight: 400;
+  --total-fs: 1.1;
+  --toast-bg: #F6E7D2;
+  --toast-ink: #2B1410;
+  --egg-bg: #FFD400;
+  --egg-fact-bg: #1B2A8C;
+  --combo-ink: #FFD400;
+  --combo-shadow: #E0313E;
+}
+html[data-theme="arcade"] .logo .logo-pixel { display: block; }
+html[data-theme="arcade"] .logo .logo-smooth { display: none; }
+html[data-theme="arcade"] .portrait.has-photo img { display: none; }
+html[data-theme="arcade"] .portrait.has-photo canvas { display: block; image-rendering: pixelated; }
+html[data-theme="arcade"] .screen.flash { animation-timing-function: steps(2); }
+html[data-theme="arcade"] .stats li.max .stat-val { animation-timing-function: steps(2); }
+html[data-theme="arcade"] .stat-val, html[data-theme="arcade"] .moves dt { font-weight: 400; }

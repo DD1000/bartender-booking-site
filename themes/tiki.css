@@ -1,0 +1,84 @@
+/* Tiki Pool Party: sunny, pool blue and hibiscus pink */
+:root[data-theme="tiki"] {
+  color-scheme: light;
+  --bg: #BFF1EE;
+  --bg-image:
+    radial-gradient(rgba(255,255,255,.55) 1.5px, transparent 2px) 0 0 / 34px 34px,
+    radial-gradient(rgba(255,255,255,.35) 1px, transparent 1.5px) 17px 17px / 34px 34px;
+  --surface: #E6FBF9;
+  --line: #8ED9D4;
+  --leader: #6FC6C0;
+  --ink: #0B3B45;
+  --ink-dim: #2E6470;
+  --accent: #FF4F8B;
+  --accent-ink: #2B0012;
+  --accent-2: #FFC93C;
+  --link: #B8104C;
+  --ghost-ink: #B8104C;
+  --focus: #0B3B45;
+  --body: "Outfit", system-ui, sans-serif;
+  --display: "Shrikhand", Georgia, serif;
+  --fight: "Shrikhand", Georgia, serif;
+  --fight-weight: 400;
+  --fight-tracking: .01em;
+  --fs: .7;
+  --name-weight: 400;
+  --name-ink: #0B3B45;
+  --name-shadow: .05em .05em 0 #FF4F8B;
+  --name-size: clamp(3.6rem, 10vw, 7.5rem);
+  --name-short-size: clamp(10rem, 30vw, 17rem);
+  --name-short-lh: .95;
+  --heading-weight: 400;
+  --heading-tracking: 0;
+  --logo-weight: 400;
+  --radius: 24px;
+  --top-bg: rgba(191, 241, 238, .92);
+  --top-border: 0;
+  --photo-radius: 4px;
+  --photo-border: 10px solid #fff;
+  --photo-shadow: 0 16px 34px rgba(11,59,69,.25);
+  --photo-transform: rotate(2.5deg);
+  --photo-q: #8ED9D4;
+  --card-bg: repeating-conic-gradient(from 0deg at 50% 115%, #0E4A55 0 9deg, #0B3B45 9deg 18deg);
+  --card-border: 6px solid #fff;
+  --card-radius: 32px;
+  --card-shadow: 0 22px 44px rgba(11,59,69,.3);
+  --card-ink: #FFFFFF;
+  --card-dim: #C9F1EE;
+  --card-accent: #FFC93C;
+  --card-accent-ink: #0B3B45;
+  --card-accent-2: #FF8DB3;
+  --card-title-shadow: 0 4px 0 #FF4F8B;
+  --portrait-radius: 24px;
+  --portrait-border: 6px solid #FFC93C;
+  --portrait-bg: #0E4A55;
+  --select-radius: 999px;
+  --select-shadow: 0 5px 0 #C9941A;
+  --bar-bg: rgba(255,255,255,.15);
+  --bar-border: 0;
+  --bar-radius: 999px;
+  --bar-fill: linear-gradient(90deg, #FFC93C, #FF4F8B);
+  --bar-max-fill: linear-gradient(90deg, #FF4F8B, #FF8DB3, #FFC93C);
+  --bio-bg: rgba(255,255,255,.1);
+  --bio-radius: 14px;
+  --ticket-bg: #FFFFFF;
+  --ticket-ink: #0B3B45;
+  --ticket-dim: #3F6B74;
+  --ticket-tear: none;
+  --ticket-radius: 28px;
+  --ticket-shadow: 0 20px 50px rgba(11,59,69,.18);
+  --field-bg: #F2FCFB;
+  --field-border: #9ADAD5;
+  --field-radius: 14px;
+  --field-focus: #FFC93C;
+  --ticket-btn: #FF4F8B;
+  --ticket-btn-ink: #2B0012;
+  --total-weight: 400;
+  --toast-bg: #0B3B45;
+  --toast-ink: #fff;
+  --egg-bg: #FFC93C;
+  --egg-fact-bg: #0B3B45;
+}
+html[data-theme="tiki"] .menu b { font-family: var(--display); font-weight: 400; color: #0B3B45; }
+html[data-theme="tiki"] .stat-val { font-family: var(--body); font-weight: 800; }
+html[data-theme="tiki"] .moves dt { font-family: var(--body); font-weight: 800; }

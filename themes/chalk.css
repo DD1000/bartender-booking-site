@@ -1,0 +1,88 @@
+/* Chalkboard: the specials board behind the bar */
+:root[data-theme="chalk"] {
+  color-scheme: dark;
+  --bg: #23302A;
+  --bg-image:
+    radial-gradient(60% 40% at 18% 12%, rgba(255,255,255,.06), transparent 70%),
+    radial-gradient(50% 30% at 82% 58%, rgba(255,255,255,.05), transparent 70%),
+    radial-gradient(40% 25% at 30% 90%, rgba(255,255,255,.04), transparent 70%);
+  --surface: #2C3B33;
+  --line: rgba(242,240,230,.25);
+  --leader: rgba(242,240,230,.4);
+  --ink: #F2F0E6;
+  --ink-dim: #CBD1C7;
+  --accent: #F7D774;
+  --accent-ink: #23302A;
+  --accent-2: #F59BB0;
+  --body: "Karla", system-ui, sans-serif;
+  --display: "Caveat Brush", "Comic Sans MS", cursive;
+  --fight: "Caveat Brush", "Comic Sans MS", cursive;
+  --fight-weight: 400;
+  --fight-tracking: .02em;
+  --fs: .95;
+  --name-weight: 400;
+  --name-ink: #F2F0E6;
+  --name-shadow: 0 0 2px rgba(255,255,255,.45);
+  --name-size: clamp(4.4rem, 12vw, 9rem);
+  --name-short-size: clamp(11rem, 32vw, 18rem);
+  --heading-weight: 400;
+  --heading-tracking: 0;
+  --heading-size: clamp(2.6rem, 5.6vw, 3.8rem);
+  --logo-weight: 400;
+  --logo-size: 1.7rem;
+  --radius: 10px;
+  --btn-radius: 10px;
+  --top-bg: rgba(35, 48, 42, .94);
+  --photo-radius: 2px;
+  --photo-border: 8px solid #F2F0E6;
+  --photo-shadow: 0 14px 28px rgba(0,0,0,.45);
+  --photo-transform: rotate(-2deg);
+  --photo-q: #3A4A41;
+  --card-bg:
+    radial-gradient(70% 50% at 30% 20%, rgba(255,255,255,.06), transparent 70%),
+    #1C2722;
+  --card-border: 14px solid #7A4E2D;
+  --card-radius: 8px;
+  --card-shadow: inset 0 0 0 2px #5E3A20, 0 18px 40px rgba(0,0,0,.45);
+  --card-ink: #F2F0E6;
+  --card-dim: #CBD1C7;
+  --card-accent: #F7D774;
+  --card-accent-ink: #1C2722;
+  --card-accent-2: #F59BB0;
+  --portrait-radius: 6px;
+  --portrait-border: 3px solid #F2F0E6;
+  --portrait-bg: #2C3B33;
+  --select-radius: 10px;
+  --bar-bg: transparent;
+  --bar-border: 2px solid rgba(242,240,230,.75);
+  --bar-radius: 4px;
+  --bar-fill: repeating-linear-gradient(-45deg, #F7D774 0 3px, transparent 3px 6px);
+  --bar-max-fill: repeating-linear-gradient(-45deg, #F59BB0 0 3px, transparent 3px 6px);
+  --bio-bg: transparent;
+  --ticket-bg: #D9BF93;
+  --ticket-ink: #2B2116;
+  --ticket-dim: #5A4630;
+  --ticket-radius: 4px;
+  --field-bg: #F6EBD6;
+  --field-border: #A8875A;
+  --field-radius: 4px;
+  --field-focus: #23302A;
+  --ticket-btn: #23302A;
+  --ticket-btn-ink: #F2F0E6;
+  --total-weight: 400;
+  --total-fs: 1.2;
+  --toast-bg: #F2F0E6;
+  --toast-ink: #23302A;
+  --egg-bg: #F7D774;
+  --egg-fact-bg: #23302A;
+}
+html[data-theme="chalk"] .btn-ghost { border-style: dashed; }
+html[data-theme="chalk"] .bio { border-left: 3px dashed #F7D774; }
+html[data-theme="chalk"] .menu b { font-family: var(--display); font-weight: 400; font-size: 1.7rem; }
+html[data-theme="chalk"] .menu li { border-bottom-style: dashed; }
+html[data-theme="chalk"] .stat-val, html[data-theme="chalk"] .moves dt kbd { font-family: var(--body); font-weight: 800; font-size: 1.1rem; }
+/* tape holding the photo up */
+html[data-theme="chalk"] .photo::before {
+  content: ""; position: absolute; z-index: 2; top: -12px; left: 50%; width: 110px; height: 30px;
+  transform: translateX(-50%) rotate(-3deg); background: rgba(246,235,214,.75);
+}

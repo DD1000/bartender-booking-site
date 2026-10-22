@@ -1,0 +1,84 @@
+/* Champagne: blush, plum and gold, made for weddings */
+:root[data-theme="wedding"] {
+  color-scheme: light;
+  --bg: #F6E4E1;
+  --bg-image:
+    radial-gradient(rgba(201,164,92,.22) 2px, transparent 2.5px) 0 0 / 46px 46px,
+    radial-gradient(rgba(201,164,92,.14) 1.5px, transparent 2px) 23px 23px / 46px 46px;
+  --surface: #FBEFED;
+  --line: #E3C3BE;
+  --leader: #D9B3AD;
+  --ink: #3B1F2B;
+  --ink-dim: #6E4A57;
+  --accent: #5B2A44;
+  --accent-ink: #FFFFFF;
+  --accent-2: #C9A45C;
+  --focus: #5B2A44;
+  --body: "Mulish", system-ui, sans-serif;
+  --display: "Cormorant Garamond", Georgia, serif;
+  --fight: "Cormorant Garamond", Georgia, serif;
+  --fight-weight: 700;
+  --fight-style: italic;
+  --fight-tracking: .02em;
+  --fs: .9;
+  --name-weight: 600;
+  --name-style: italic;
+  --name-ink: #3B1F2B;
+  --name-size: clamp(4rem, 11vw, 8.5rem);
+  --name-short-size: clamp(11rem, 30vw, 18rem);
+  --heading-weight: 600;
+  --heading-style: italic;
+  --heading-tracking: 0;
+  --heading-size: clamp(2.4rem, 5vw, 3.6rem);
+  --logo-weight: 700;
+  --logo-size: 1.5rem;
+  --radius: 14px;
+  --top-bg: rgba(246, 228, 225, .92);
+  --photo-radius: 999px 999px 10px 10px;
+  --photo-border: 1px solid #C9A45C;
+  --photo-shadow: 0 0 0 10px #FBEFED, 0 0 0 11px #C9A45C;
+  --photo-q: #E3C3BE;
+  --card-bg: radial-gradient(80% 60% at 50% 0%, rgba(231,199,125,.14), transparent 70%), #3B1F2B;
+  --card-border: 1px solid #C9A45C;
+  --card-radius: 14px;
+  --card-shadow: inset 0 0 0 10px #3B1F2B, inset 0 0 0 11px #C9A45C, 0 24px 50px rgba(59,31,43,.25);
+  --card-ink: #FBEFED;
+  --card-dim: #E6CDD5;
+  --card-accent: #E7C77D;
+  --card-accent-ink: #3B1F2B;
+  --card-accent-2: #F3A6B8;
+  --portrait-radius: 999px 999px 0 0;
+  --portrait-border: 2px solid #E7C77D;
+  --portrait-bg: #4D2A3A;
+  --select-radius: 999px;
+  --bar-bg: rgba(255,255,255,.12);
+  --bar-border: 0;
+  --bar-radius: 999px;
+  --bar-fill: linear-gradient(90deg, #B08A3E, #F2DCA0);
+  --bar-max-fill: linear-gradient(90deg, #E58FA5, #F8CBD6);
+  --bio-bg: rgba(255,255,255,.06);
+  --bio-radius: 8px;
+  --ticket-bg: #FFFAF8;
+  --ticket-ink: #3B1F2B;
+  --ticket-dim: #6E4A57;
+  --ticket-tear: none;
+  --ticket-radius: 14px;
+  --ticket-border: 1px solid #C9A45C;
+  --ticket-shadow: 0 0 0 8px #FFFAF8, 0 0 0 9px #C9A45C, 0 24px 50px rgba(59,31,43,.15);
+  --field-bg: #FFFFFF;
+  --field-border: #E3C3BE;
+  --field-radius: 10px;
+  --field-focus: #E7C77D;
+  --ticket-btn: #5B2A44;
+  --ticket-btn-ink: #FFFFFF;
+  --total-weight: 700;
+  --toast-bg: #3B1F2B;
+  --toast-ink: #FBEFED;
+  --egg-bg: #F3A6B8;
+  --egg-fact-bg: #3B1F2B;
+  --combo-ink: #5B2A44;
+  --combo-shadow: #E7C77D;
+}
+html[data-theme="wedding"] .bar { height: 10px; padding: 0; }
+html[data-theme="wedding"] .menu b { font-family: var(--display); font-style: italic; font-weight: 700; font-size: 1.5rem; }
+html[data-theme="wedding"] .stat-val, html[data-theme="wedding"] .moves dt { font-style: normal; }
