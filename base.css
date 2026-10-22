@@ -3,7 +3,7 @@
    adds itself under html[data-theme="…"]. */
 :root {
   --gutter: clamp(16px, 4vw, 48px);
-  --fs: 1;                 /* size scale for the fight font (pixel fonts run small) */
+  --fs: 1;                 /* size scale for the profile card's display font */
   --radius: 6px;
   --btn-radius: 999px;
   --field-radius: 6px;
@@ -28,7 +28,7 @@ body {
   font: 400 1.0625rem/1.6 var(--body);
   overflow-x: hidden;
 }
-img, canvas { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; }
 a { color: var(--link, var(--accent)); }
 :focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 3px; }
 .wrap { width: min(1120px, 100%); margin: 0 auto; padding: 0 var(--gutter); }
@@ -49,7 +49,6 @@ a { color: var(--link, var(--accent)); }
 }
 .logo span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .logo svg { flex: none; width: 36px; height: 36px; transition: transform .15s; }
-.logo .logo-pixel { display: none; }
 .logo:hover svg { transform: rotate(-12deg); }
 .logo:active svg { transform: rotate(-12deg) scale(.9); }
 .glass-bowl { fill: var(--accent); }
@@ -78,16 +77,6 @@ a { color: var(--link, var(--accent)); }
   background: var(--accent); color: var(--accent-ink); text-decoration: none;
   font-weight: 800; border-radius: var(--btn-radius);
 }
-.combo {
-  position: fixed; left: var(--gutter); top: 74px; z-index: 45;
-  font: var(--fight-weight) calc(2.4rem * var(--fs)) / 1 var(--fight);
-  font-style: var(--fight-style, normal);
-  color: var(--combo-ink, var(--accent));
-  text-shadow: 3px 3px 0 var(--combo-shadow, var(--accent-2));
-  pointer-events: none; opacity: 0; transform: scale(.6);
-  transition: opacity .15s, transform .15s;
-}
-.combo.show { opacity: 1; transform: scale(1); }
 
 /* ── hero ───────────────────────────────── */
 .hero { padding: clamp(40px, 7vw, 96px) 0 clamp(48px, 7vw, 88px); overflow-x: clip; }
@@ -144,7 +133,7 @@ a { color: var(--link, var(--accent)); }
 }
 .photo-empty b { font: var(--name-weight) 5rem/1 var(--display); color: var(--photo-q, var(--line)); }
 
-/* ── the fighter card ───────────────────── */
+/* ── the profile card ───────────────────── */
 .select { padding: clamp(24px, 4vw, 48px) 0; }
 .screen {
   position: relative; overflow: hidden;
@@ -156,8 +145,6 @@ a { color: var(--link, var(--accent)); }
   color: var(--card-ink);
 }
 .screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--card-overlay, none); }
-.screen.flash { animation: flash .5s ease-in-out 2; }
-@keyframes flash { 50% { filter: brightness(1.6) saturate(.5); } }
 .screen-title {
   position: relative; z-index: 1;
   margin: 0 0 24px; text-align: center;
@@ -170,11 +157,6 @@ a { color: var(--link, var(--accent)); }
 .fighter { display: grid; gap: clamp(20px, 4vw, 40px); position: relative; z-index: 1; }
 @media (min-width: 780px) { .fighter { grid-template-columns: 260px 1fr; } }
 .fighter-id { text-align: center; }
-.p1 {
-  margin: 0 0 6px;
-  font: var(--fight-weight) calc(1.8rem * var(--fs)) / 1 var(--fight); font-style: var(--fight-style, normal);
-  color: var(--card-accent-2); text-shadow: var(--p1-shadow, none);
-}
 .portrait {
   position: relative; width: 200px; aspect-ratio: 36 / 46; margin: 0 auto;
   background: var(--portrait-bg, #000);
@@ -184,7 +166,7 @@ a { color: var(--link, var(--accent)); }
   overflow: hidden;
   transform: var(--portrait-transform, none);
 }
-.portrait img, .portrait canvas { width: 100%; height: 100%; object-fit: cover; display: none; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; display: none; }
 .portrait.has-photo img { display: block; }
 .portrait.has-photo .portrait-empty { display: none; }
 .portrait-empty {
@@ -207,7 +189,7 @@ a { color: var(--link, var(--accent)); }
 .select-btn:active { transform: translateY(3px); }
 
 .stats { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 10px; }
-.stats li { display: grid; grid-template-columns: 8.5em 1fr 3ch; align-items: center; gap: 12px; }
+.stats li { display: grid; grid-template-columns: 9.5em 1fr; align-items: center; gap: 12px; }
 .stat-name { font: var(--fight-weight) calc(1.6rem * var(--fs)) / 1 var(--fight); font-style: var(--fight-style, normal); color: var(--card-ink); }
 .bar {
   height: 18px; padding: 2px;
@@ -224,13 +206,8 @@ a { color: var(--link, var(--accent)); }
   transition: width 1.1s var(--bar-ease, cubic-bezier(.2, .8, .2, 1));
 }
 .stats.in .bar i { width: calc(var(--v) * 1%); }
-.stats li.max .bar i { background: var(--bar-max-fill, var(--card-accent-2)); }
-.stat-val { font: var(--fight-weight) calc(1.6rem * var(--fs)) / 1 var(--fight); color: var(--card-accent); text-align: right; }
-.stats li.max .stat-val { color: var(--card-accent-2); animation: blink .5s ease-in-out 6; }
-@keyframes blink { 50% { opacity: .35; } }
 @media (max-width: 520px) {
-  .stats li { grid-template-columns: 1fr 3ch; row-gap: 4px; }
-  .stats .bar { grid-column: 1 / -1; grid-row: 2; }
+  .stats li { grid-template-columns: 1fr; row-gap: 4px; }
 }
 .moves-h {
   margin: 0 0 10px;
@@ -239,11 +216,9 @@ a { color: var(--link, var(--accent)); }
 }
 .moves { margin: 0 0 22px; display: grid; gap: 12px; }
 .moves div { display: grid; gap: 2px 14px; }
-@media (min-width: 600px) { .moves div { grid-template-columns: 7.5em 1fr; } }
+@media (min-width: 600px) { .moves div { grid-template-columns: 10em 1fr; } }
 .moves dt { font: var(--fight-weight) calc(1.5rem * var(--fs)) / 1.1 var(--fight); color: var(--card-ink); white-space: nowrap; }
-.moves dt kbd { font: inherit; color: var(--card-accent); }
 .moves dd { margin: 0; color: var(--card-dim); }
-.moves dd b { color: var(--card-ink); }
 .bio {
   margin: 0; padding: 14px 16px; max-width: 64ch;
   background: var(--bio-bg, rgba(0,0,0,.3)); border-left: 4px solid var(--card-accent);
@@ -353,8 +328,6 @@ footer p { margin: 0; }
 @keyframes pop { from { transform: scale(1.08); opacity: 0; } }
 .shake { animation: shake .35s linear; }
 @keyframes shake { 25% { transform: translate(-6px, 3px) } 50% { transform: translate(5px, -4px) } 75% { transform: translate(-3px, -2px) } }
-.rain { position: fixed; top: -60px; z-index: 70; font-size: 2rem; pointer-events: none; animation: fall linear forwards; }
-@keyframes fall { to { transform: translateY(115vh) rotate(540deg); } }
 
 /* ── style picker (same look in every style, so it reads as a tool, not the site) ── */
 .picker {

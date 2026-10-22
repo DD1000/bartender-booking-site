@@ -76,9 +76,7 @@
   --toast-ink: #FBEFED;
   --egg-bg: #F3A6B8;
   --egg-fact-bg: #3B1F2B;
-  --combo-ink: #5B2A44;
-  --combo-shadow: #E7C77D;
 }
 html[data-theme="wedding"] .bar { height: 10px; padding: 0; }
 html[data-theme="wedding"] .menu b { font-family: var(--display); font-style: italic; font-weight: 700; font-size: 1.5rem; }
-html[data-theme="wedding"] .stat-val, html[data-theme="wedding"] .moves dt { font-style: normal; }
+html[data-theme="wedding"] .moves dt { font-style: normal; }

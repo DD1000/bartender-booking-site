@@ -71,8 +71,6 @@
   --toast-ink: #2B1D3D;
   --egg-bg: #FFB38A;
   --egg-fact-bg: #3D2A5C;
-  --combo-ink: #FFB38A;
-  --combo-shadow: #3D2A5C;
 }
 /* a low sun behind the photo */
 html[data-theme="lofi"] .photo::before {

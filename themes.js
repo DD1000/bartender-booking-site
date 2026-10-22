@@ -1,18 +1,12 @@
 // The site's styles. Each one is a file in themes/ plus the fonts it needs.
 // music: "chip" (chiptune) or "lofi" (softer lo-fi keys); swatch: colours shown in the picker.
 window.THEMES = [
-  { id: 'arcade',  name: 'Arcade Bar',      blurb: 'Pixel arcade on a mahogany bar',     music: 'chip',
-    fonts: 'family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Jersey+10',
-    swatch: ['#2B1410', '#F2A33A', '#E0313E', '#1B2A8C'] },
   { id: 'deco',    name: 'Speakeasy',       blurb: 'Emerald and brass, Art Deco',        music: 'lofi',
     fonts: 'family=Limelight&family=Jost:wght@400;600;800',
     swatch: ['#0E3B30', '#C9A44C', '#F3EAD3', '#8C1C2B'] },
   { id: 'tiki',    name: 'Tiki Pool Party', blurb: 'Sunny, pool blue and hibiscus pink', music: 'chip',
     fonts: 'family=Shrikhand&family=Outfit:wght@400;600;800',
     swatch: ['#BFF1EE', '#FF4F8B', '#FFC93C', '#0B3B45'] },
-  { id: 'versus',  name: 'Versus',          blurb: 'Modern fighting-game HUD',           music: 'chip',
-    fonts: 'family=Barlow+Condensed:ital,wght@0,700;0,800;1,800;1,900&family=Barlow:wght@400;600;800',
-    swatch: ['#EDEBE6', '#141414', '#E0005F', '#FFD600'] },
   { id: 'manga',   name: 'Manga Izakaya',   blurb: 'Ink panels and a red lantern',       music: 'lofi',
     fonts: 'family=Dela+Gothic+One&family=Zen+Kaku+Gothic+New:wght@400;700;900',
     swatch: ['#FAFAF7', '#111111', '#D7263D', '#E0E0E0'] },

@@ -39,16 +39,6 @@
         <path class="glass-line" d="M16 18v9m-5.5 0h11"/>
         <circle class="glass-cherry" cx="21.5" cy="4" r="2.4"/>
       </svg>
-      <svg class="logo-pixel" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true">
-        <rect x="1" y="2" width="10" height="1" fill="#F6E7D2"/>
-        <rect x="2" y="3" width="8" height="1" fill="#F2A33A"/>
-        <rect x="3" y="4" width="6" height="1" fill="#F2A33A"/>
-        <rect x="4" y="5" width="4" height="1" fill="#F2A33A"/>
-        <rect x="5" y="6" width="2" height="4" fill="#F6E7D2"/>
-        <rect x="3" y="10" width="6" height="1" fill="#F6E7D2"/>
-        <rect x="7" y="1" width="1" height="3" fill="#CDB8A0"/>
-        <rect x="8" y="0" width="2" height="2" fill="#E0313E"/>
-      </svg>
       <span data-cfg="name">Q</span>
     </button>
     <div class="top-actions">
@@ -60,7 +50,6 @@
     </div>
   </div>
 </header>
-<div class="combo" id="combo" aria-hidden="true"></div>
 
 <main>
   <section class="hero">
@@ -76,7 +65,7 @@
         </dl>
         <div class="ctas">
           <a class="btn btn-main" href="#book">Request a date</a>
-          <a class="btn btn-ghost" href="#fighter">See my stats</a>
+          <a class="btn btn-ghost" href="#profile">About me</a>
         </div>
       </div>
       <figure class="photo">
@@ -88,39 +77,37 @@
     </div>
   </section>
 
-  <section class="select" id="fighter" aria-labelledby="fighter-h">
+  <section class="select" id="profile" aria-labelledby="profile-h">
     <div class="wrap">
       <div class="screen" id="screen">
-        <h2 class="screen-title" id="fighter-h">Choose your bartender</h2>
+        <h2 class="screen-title" id="profile-h">At a glance</h2>
         <div class="fighter">
           <div class="fighter-id">
-            <p class="p1" aria-hidden="true">1P</p>
             <div class="portrait" id="portraitBox">
               <img id="portraitImg" alt="">
-              <canvas id="portrait" width="36" height="46" aria-hidden="true"></canvas>
               <span class="portrait-empty" aria-hidden="true">?</span>
             </div>
             <p class="fighter-name" data-cfg="name">Q</p>
-            <p class="fighter-class">Mixologist, level <span data-cfg="years">12</span></p>
-            <button class="select-btn" id="selectBtn" type="button">Select this bartender</button>
+            <p class="fighter-class">Bartender and mixologist, <span data-cfg="years">12</span> years</p>
+            <button class="select-btn" id="selectBtn" type="button">Request a date</button>
           </div>
           <div>
-            <ul class="stats" id="stats">
-              <li style="--v:96"><span class="stat-name">Creativity</span><span class="bar" aria-hidden="true"><i></i></span><b class="stat-val">96</b></li>
-              <li style="--v:91"><span class="stat-name">Silliness</span><span class="bar" aria-hidden="true"><i></i></span><b class="stat-val">91</b></li>
-              <li style="--v:100" class="max"><span class="stat-name">Music taste</span><span class="bar" aria-hidden="true"><i></i></span><b class="stat-val">MAX</b></li>
-              <li style="--v:93"><span class="stat-name">Pour speed</span><span class="bar" aria-hidden="true"><i></i></span><b class="stat-val">93</b></li>
-              <li style="--v:95"><span class="stat-name">Crowd control</span><span class="bar" aria-hidden="true"><i></i></span><b class="stat-val">95</b></li>
-              <li style="--v:90"><span class="stat-name">Stamina</span><span class="bar" aria-hidden="true"><i></i></span><b class="stat-val">90</b></li>
+            <ul class="stats" id="stats" aria-label="Skills">
+              <li style="--v:96"><span class="stat-name">Creativity</span><span class="bar" aria-hidden="true"><i></i></span></li>
+              <li style="--v:98"><span class="stat-name">Hospitality</span><span class="bar" aria-hidden="true"><i></i></span></li>
+              <li style="--v:93"><span class="stat-name">Speed</span><span class="bar" aria-hidden="true"><i></i></span></li>
+              <li style="--v:95"><span class="stat-name">Crowd control</span><span class="bar" aria-hidden="true"><i></i></span></li>
+              <li style="--v:100"><span class="stat-name">Music taste</span><span class="bar" aria-hidden="true"><i></i></span></li>
+              <li style="--v:91"><span class="stat-name">Sense of fun</span><span class="bar" aria-hidden="true"><i></i></span></li>
             </ul>
-            <h3 class="moves-h">Special moves</h3>
+            <h3 class="moves-h">What I bring</h3>
             <dl class="moves">
-              <div><dt><kbd aria-label="down, down-forward, forward, punch">↓↘→ P</kbd></dt><dd><b>Shaker Uppercut.</b> Shakes a sour so hard the tin frosts over.</dd></div>
-              <div><dt><kbd aria-label="back, forward, kick">←→ K</kbd></dt><dd><b>Last Call Combo.</b> Clears a ten-deep line at the bar without breaking a sweat.</dd></div>
-              <div><dt><kbd aria-label="down, down, punch">↓↓ P</kbd></dt><dd><b>Signature Summon.</b> Invents a drink named after the guest of honour, on the spot.</dd></div>
-              <div><dt><kbd aria-label="hold start">Hold ▶</kbd></dt><dd><b>Aux Cord Hijack.</b> Compliments the DJ. Might request a song.</dd></div>
+              <div><dt>Craft cocktails</dt><dd>Properly shaken sours, stirred classics and drinks served cold.</dd></div>
+              <div><dt>Fast service</dt><dd>Keeps a busy bar moving, even when everyone shows up at once.</dd></div>
+              <div><dt>Signature drinks</dt><dd>A custom cocktail named for the couple or the guest of honour.</dd></div>
+              <div><dt>Good energy</dt><dd>Easy with guests, hosts and the DJ.</dd></div>
             </dl>
-            <p class="bio"><span data-cfg="years">12</span> years behind the bar and still the first one to get the dance floor going. Has poured at weddings, backyard birthdays, rooftop parties and at least one event nobody can fully explain. Fights for fast lines and cold drinks. Weakness: will stop mid-pour to ask what song this is.</p>
+            <p class="bio"><span data-cfg="years">12</span> years behind the bar at weddings, birthdays, rooftop parties and work events. I care about short lines, cold drinks and guests who feel looked after, and I'm usually the first one to get the dance floor going.</p>
           </div>
         </div>
       </div>
@@ -220,7 +207,7 @@
 <footer>
   <div class="wrap">
     <p>© <span id="year">2026</span> <span data-cfg="name">Q</span>. ABC licence #<span data-cfg="abc.number">RBS-0000000</span>, <span data-cfg="abc.issuer">California ABC</span>.<a id="abcProof" href="#" target="_blank" rel="noopener" hidden> View certificate</a></p>
-    <p><a id="insta" href="#" target="_blank" rel="noopener" hidden>Instagram</a> Psst: the glass in the corner does things.</p>
+    <p><a id="insta" href="#" target="_blank" rel="noopener" hidden>Instagram</a></p>
   </div>
 </footer>
 

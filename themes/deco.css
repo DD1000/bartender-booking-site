@@ -87,10 +87,9 @@ html[data-theme="deco"] .bar { height: 14px; }
 html[data-theme="deco"] .menu b { font-family: var(--display); font-weight: 400; letter-spacing: .02em; }
 /* Limelight runs wide: small card text uses Jost in spaced capitals instead */
 html[data-theme="deco"] .stat-name,
-html[data-theme="deco"] .stat-val,
 html[data-theme="deco"] .moves dt,
 html[data-theme="deco"] .select-btn {
   font: 600 .95rem/1.1 var(--body); letter-spacing: .1em; text-transform: uppercase;
 }
 html[data-theme="deco"] .select-btn { padding: 0 22px; }
-@media (min-width: 521px) { html[data-theme="deco"] .stats li { grid-template-columns: 11.5em 1fr 3ch; } }
+@media (min-width: 521px) { html[data-theme="deco"] .stats li { grid-template-columns: 11.5em 1fr; } }

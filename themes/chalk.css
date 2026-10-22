@@ -80,7 +80,6 @@ html[data-theme="chalk"] .btn-ghost { border-style: dashed; }
 html[data-theme="chalk"] .bio { border-left: 3px dashed #F7D774; }
 html[data-theme="chalk"] .menu b { font-family: var(--display); font-weight: 400; font-size: 1.7rem; }
 html[data-theme="chalk"] .menu li { border-bottom-style: dashed; }
-html[data-theme="chalk"] .stat-val, html[data-theme="chalk"] .moves dt kbd { font-family: var(--body); font-weight: 800; font-size: 1.1rem; }
 /* tape holding the photo up */
 html[data-theme="chalk"] .photo::before {
   content: ""; position: absolute; z-index: 2; top: -12px; left: 50%; width: 110px; height: 30px;

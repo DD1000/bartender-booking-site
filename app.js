@@ -22,7 +22,7 @@
   showLink($('#abcProof'), S.abc && S.abc.proof);
   showLink($('#insta'), S.instagram);
 
-  // ── photo, plus the fighter-card portrait (a pixelated copy for the arcade style) ──
+  // ── photo, in the hero and on the profile card ──
   if (S.photo) {
     const img = new Image();
     img.onload = () => {
@@ -31,11 +31,6 @@
       hero.alt = `${S.name || 'The bartender'} behind the bar`;
       $('#photoFrame').classList.add('has-photo');
       $('#portraitImg').src = img.src;
-      const c = $('#portrait'), ctx = c.getContext('2d');
-      const r = Math.max(c.width / img.width, c.height / img.height);
-      const sw = c.width / r, sh = c.height / r;
-      ctx.imageSmoothingQuality = 'high';
-      ctx.drawImage(img, (img.width - sw) / 2, (img.height - sh) * 0.15, sw, sh, 0, 0, c.width, c.height);
       $('#portraitBox').classList.add('has-photo');
     };
     img.src = S.photo;
@@ -268,13 +263,7 @@
   egg.addEventListener('click', closeEgg);
   addEventListener('keydown', (e) => { if (e.key === 'Escape') closeEgg(); });
 
-  let combo = 0, comboTimer;
   $('#logo').addEventListener('click', () => {
-    combo++;
-    clearTimeout(comboTimer);
-    comboTimer = setTimeout(() => { combo = 0; $('#combo').classList.remove('show'); }, 1400);
-    if (combo >= 2) { const c = $('#combo'); c.textContent = `${combo} hit combo!`; c.classList.add('show'); }
-
     if (Math.random() < 0.6) {
       const [face, say] = REACTIONS[randomIndex(REACTIONS.length)];
       openEgg(`<div class="egg-face" aria-hidden="true">${face}</div><p class="egg-say" id="eggText">${say}</p>`, false);
@@ -286,38 +275,10 @@
     }
   });
 
-  // ── easter egg: ↑↑↓↓←→←→BA ──────────────────
-  const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-  let k = 0;
-  addEventListener('keydown', (e) => {
-    k = e.key === KONAMI[k] ? k + 1 : (e.key === KONAMI[0] ? 1 : 0);
-    if (k < KONAMI.length) return;
-    k = 0;
-    toast('Secret unlocked: happy hour mode.');
-    Music.sting([60, 64, 67, 72, 76, 79, 84], 0.06);
-    if (reduceMotion) return;
-    const drinks = ['🍸', '🍹', '🥂', '🍋', '🍒', '🧊', '🍾'];
-    for (let i = 0; i < 40; i++) {
-      const d = document.createElement('span');
-      d.className = 'rain'; d.textContent = drinks[i % drinks.length];
-      d.style.left = Math.random() * 100 + 'vw';
-      d.style.animationDuration = 2.2 + Math.random() * 2 + 's';
-      d.style.animationDelay = Math.random() * 1.2 + 's';
-      document.body.appendChild(d);
-      setTimeout(() => d.remove(), 5600);
-    }
-  });
-
-  // ── select this bartender ───────────────────
+  // ── profile card's "Request a date": jump to the form, ready to type ──
   $('#selectBtn').addEventListener('click', () => {
-    const screen = $('#screen');
-    screen.classList.remove('flash'); void screen.offsetWidth; screen.classList.add('flash');
-    Music.sting([67, 72, 76, 79, 84, 88], 0.07);
-    toast('Bartender selected. Now pick your date.', 3000);
-    setTimeout(() => {
-      $('#book').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-      setTimeout(() => $('#f-date').focus({ preventScroll: true }), reduceMotion ? 0 : 600);
-    }, reduceMotion ? 0 : 700);
+    $('#book').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+    setTimeout(() => $('#f-date').focus({ preventScroll: true }), reduceMotion ? 0 : 600);
   });
 
   // ── booking form ────────────────────────────
@@ -375,7 +336,6 @@
       if (!r.ok || String(j.success) === 'false') throw new Error(j.message || 'send failed');
       form.reset(); updateTotal();
       say(`Request sent. I'll reply to ${escapeHtml(data.email)} to confirm the date.`, 'ok');
-      Music.sting([72, 76, 79, 84, 79, 84], 0.09);
     } catch {
       const body = Object.entries(data).filter(([k, v]) => v && k !== '_honey').map(([k, v]) => `${k}: ${v}`).join('\n');
       const mail = `mailto:${S.email}?subject=${encodeURIComponent('Bartending request')}&body=${encodeURIComponent(body + '\nEstimate: ' + updateTotal())}`;

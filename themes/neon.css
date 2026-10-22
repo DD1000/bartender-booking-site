@@ -76,8 +76,6 @@
   --toast-ink: #2A0016;
   --egg-bg: #FF3EA5;
   --egg-fact-bg: #160E12;
-  --combo-ink: #47E5FF;
-  --combo-shadow: #FF3EA5;
 }
 html[data-theme="neon"] h2.plain { text-shadow: 0 0 4px rgba(255,255,255,.7), 0 0 16px #47E5FF; }
 html[data-theme="neon"] .ticket h2.plain { text-shadow: 0 0 14px #47E5FF; }

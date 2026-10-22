@@ -80,5 +80,4 @@
   --egg-fact-bg: #0B3B45;
 }
 html[data-theme="tiki"] .menu b { font-family: var(--display); font-weight: 400; color: #0B3B45; }
-html[data-theme="tiki"] .stat-val { font-family: var(--body); font-weight: 800; }
 html[data-theme="tiki"] .moves dt { font-family: var(--body); font-weight: 800; }

@@ -78,8 +78,6 @@
   --toast-ink: #F4FF3A;
   --egg-bg: #F4FF3A;
   --egg-fact-bg: #0D0D0D;
-  --combo-ink: #0D0D0D;
-  --combo-shadow: #F4FF3A;
 }
 /* highlighter swipe across the name, slightly crooked */
 html[data-theme="zine"] .name {

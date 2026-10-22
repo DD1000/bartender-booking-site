@@ -75,8 +75,6 @@
   --toast-ink: #FFFFFF;
   --egg-bg: #FFD400;
   --egg-fact-bg: #111111;
-  --combo-ink: #D7263D;
-  --combo-shadow: #111;
 }
 /* 乾杯 ("kanpai", cheers) runs down beside the photo like a lantern sign */
 html[data-theme="manga"] .photo::after {

@@ -3,12 +3,12 @@
 //  Change a value, save, push. No other file needs touching.
 // ─────────────────────────────────────────────────────────────
 window.SITE = {
-  // Shown in the header, page title and fighter card.
+  // Shown in the header, page title and profile card.
   name: "Q",
 
-  // The site's look: one of the ids in themes.js (arcade, deco, tiki, versus, manga,
-  // neon, wedding, lofi, chalk, zine, disco).
-  style: "arcade",
+  // The site's look: one of the ids in themes.js (deco, tiki, manga, neon,
+  // wedding, lofi, chalk, zine, disco).
+  style: "deco",
   // While choosing, a "Style" button lets visitors flip through every look.
   // Set to false once the style is picked.
   showStylePicker: true,
