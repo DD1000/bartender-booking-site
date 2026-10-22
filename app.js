@@ -97,7 +97,7 @@
       crackle.connect(master); crackle.start();
       ctx.onstatechange = () => { if (on && ctx.state === 'running' && !store.get('musicToastShown')) {
         store.set('musicToastShown', '1');
-        toast('Lo-fi is playing quietly. Turn it off with Music at the top.');
+        toast('Music is playing quietly. Turn it off with Music at the top.');
       } };
       document.addEventListener('visibilitychange', () => {
         if (!on) return;
