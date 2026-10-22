@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bartender for hire</title>
+<title>Q, bartender for hire</title>
 <meta name="description" content="Bartender for hire with 12 years of experience. Weddings, parties and any event, anywhere in the world. $50 an hour.">
 <meta name="theme-color" content="#2B1410">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' shape-rendering='crispEdges'><rect x='1' y='2' width='10' height='1' fill='%23F6E7D2'/><rect x='2' y='3' width='8' height='1' fill='%23F2A33A'/><rect x='3' y='4' width='6' height='1' fill='%23F2A33A'/><rect x='4' y='5' width='4' height='1' fill='%23F2A33A'/><rect x='5' y='6' width='2' height='4' fill='%23F6E7D2'/><rect x='3' y='10' width='6' height='1' fill='%23F6E7D2'/><rect x='8' y='0' width='2' height='2' fill='%23E0313E'/></svg>">
@@ -108,6 +108,8 @@
     text-shadow: .045em .045em 0 var(--cherry);
     overflow-wrap: anywhere;
   }
+  /* a one-to-three letter name gets to be the whole marquee */
+  .name.short { font-size: clamp(10rem, 34vw, 19rem); line-height: .78; text-shadow: .035em .035em 0 var(--cherry); }
   .lede { max-width: 34ch; margin: 22px 0 28px; font-size: clamp(1.2rem, 2.2vw, 1.45rem); line-height: 1.4; }
 
   .tab { margin: 0 0 32px; padding: 0; max-width: 460px; }
@@ -348,7 +350,7 @@
         <rect x="7" y="1" width="1" height="3" fill="#CDB8A0"/>
         <rect x="8" y="0" width="2" height="2" fill="#E0313E"/>
       </svg>
-      <span data-cfg="name">Your Name</span>
+      <span data-cfg="name">Q</span>
     </button>
     <div class="top-actions">
       <button class="music" id="music" type="button" aria-pressed="false" aria-label="Background music">
@@ -365,7 +367,7 @@
   <section class="hero">
     <div class="wrap">
       <div>
-        <h1 class="name" data-cfg="name">Your Name</h1>
+        <h1 class="name" data-cfg="name">Q</h1>
         <p class="lede">Bartender for hire. Weddings, parties, and anything you can think of, anywhere in the world.</p>
         <dl class="tab">
           <div><dt>Rate</dt><dd>$<span data-cfg="rate">50</span> an hour</dd></div>
@@ -398,7 +400,7 @@
               <canvas id="portrait" width="36" height="46" aria-hidden="true"></canvas>
               <span class="portrait-empty" aria-hidden="true">?</span>
             </div>
-            <p class="fighter-name" data-cfg="name">Your Name</p>
+            <p class="fighter-name" data-cfg="name">Q</p>
             <p class="fighter-class">Mixologist, level <span data-cfg="years">12</span></p>
             <button class="select-btn" id="selectBtn" type="button">Select this bartender</button>
           </div>
@@ -517,7 +519,7 @@
 
 <footer>
   <div class="wrap">
-    <p>© <span id="year">2026</span> <span data-cfg="name">Your Name</span>. ABC licence #<span data-cfg="abc.number">RBS-0000000</span>, <span data-cfg="abc.issuer">California ABC</span>.<a id="abcProof" href="#" target="_blank" rel="noopener" hidden> View certificate</a></p>
+    <p>© <span id="year">2026</span> <span data-cfg="name">Q</span>. ABC licence #<span data-cfg="abc.number">RBS-0000000</span>, <span data-cfg="abc.issuer">California ABC</span>.<a id="abcProof" href="#" target="_blank" rel="noopener" hidden> View certificate</a></p>
     <p><a id="insta" href="#" target="_blank" rel="noopener" hidden>Instagram</a> Psst: the glass in the corner does things.</p>
   </div>
 </footer>
@@ -549,6 +551,7 @@
     if (v !== undefined && v !== null && v !== '') el.textContent = v;
   });
   if (S.name) document.title = `${S.name}, bartender for hire`;
+  if (S.name && S.name.trim().length <= 3) $('.name').classList.add('short');
   $('#year').textContent = new Date().getFullYear();
   const showLink = (el, href) => { if (href) { el.href = href; el.hidden = false; } };
   showLink($('#calLink'), S.calendarLink);

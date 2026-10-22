@@ -4,14 +4,14 @@
 // ─────────────────────────────────────────────────────────────
 window.SITE = {
   // Shown in the header, page title and fighter card.
-  name: "Your Name",
+  name: "Q",
 
   rate: 50,   // dollars per hour
   years: 12,  // years of experience
 
   // Booking requests get emailed here (sent through formsubmit.co, free, no account).
   // The very first request sends a one-time "activate" email to this address: click it once.
-  email: "",
+  email: "marquise22.mt@gmail.com",
 
   // Optional: a Calendly / Cal.com / Google booking link. Adds a "pick a time" button.
   calendarLink: "",
