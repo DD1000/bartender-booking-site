@@ -1,6 +1,9 @@
 // The site's styles. Each one is a file in themes/ plus the fonts it needs.
 // music: "chip" (chiptune) or "lofi" (softer lo-fi keys); swatch: colours shown in the picker.
 window.THEMES = [
+  { id: 'pro',     name: 'Professional',    blurb: 'Clean white, serif headings, one red', music: 'lofi',
+    fonts: 'family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;800',
+    swatch: ['#FFFFFF', '#1D1B1A', '#B3132B', '#F5F3F0'] },
   { id: 'deco',    name: 'Speakeasy',       blurb: 'Emerald and brass, Art Deco',        music: 'lofi',
     fonts: 'family=Limelight&family=Jost:wght@400;600;800',
     swatch: ['#0E3B30', '#C9A44C', '#F3EAD3', '#8C1C2B'] },

@@ -14,8 +14,7 @@
     const v = pick(el.dataset.cfg);
     if (v !== undefined && v !== null && v !== '') el.textContent = v;
   });
-  if (S.name) document.title = `${S.name}, bartender for hire`;
-  if (S.name && S.name.trim().length <= 3) $('.name').classList.add('short');
+  if (S.name) document.title = `${S.name}, event bartender for hire`;
   $('#year').textContent = new Date().getFullYear();
   const showLink = (el, href) => { if (href) { el.href = href; el.hidden = false; } };
   showLink($('#calLink'), S.calendarLink);
@@ -342,7 +341,7 @@
       say(`The request didn't go through. Check your connection and try again, or <a href="${mail}">send it by email instead</a>.`, 'err');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Request this date';
+      submitBtn.textContent = 'Send request';
     }
   });
   // ── style picker ────────────────────────────

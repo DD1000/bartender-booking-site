@@ -72,11 +72,23 @@ a { color: var(--link, var(--accent)); }
 .eq i:nth-child(2) { animation-delay: -.3s !important; }
 .eq i:nth-child(3) { animation-delay: -.6s !important; }
 @keyframes eq { 0% { height: 4px } 50% { height: 14px } 100% { height: 6px } }
+.top-book .short { display: none; }
+@media (max-width: 430px) { .top-book .long { display: none; } .top-book .short { display: inline; } }
 .top-book {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
   background: var(--accent); color: var(--accent-ink); text-decoration: none;
   font-weight: 800; border-radius: var(--btn-radius);
 }
+
+/* ── nav ────────────────────────────────── */
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; z-index: 100; padding: 10px 14px; background: var(--ink); color: var(--bg); border-radius: 6px; }
+.logo-sub { font: 500 .85rem/1 var(--body); color: var(--ink-dim); white-space: nowrap; }
+@media (max-width: 560px) { .logo-sub { display: none; } }
+.nav { display: none; gap: 24px; margin-left: 24px; }
+.nav a { color: var(--ink-dim); text-decoration: none; font-weight: 600; font-size: .95rem; }
+.nav a:hover { color: var(--ink); }
+@media (min-width: 900px) { .nav { display: flex; } }
 
 /* ── hero ───────────────────────────────── */
 .hero { padding: clamp(40px, 7vw, 96px) 0 clamp(48px, 7vw, 88px); overflow-x: clip; }
@@ -94,6 +106,16 @@ a { color: var(--link, var(--accent)); }
 }
 .name.short { font-size: var(--name-short-size); line-height: var(--name-short-lh, .8); }
 .name.short + .lede { margin-top: clamp(28px, 4vw, 44px); }
+.kicker { margin: 0 0 16px; font: 600 1rem/1.3 var(--body); color: var(--link, var(--accent)); }
+.headline {
+  margin: 0; max-width: 17ch; text-wrap: balance;
+  font: var(--name-weight) var(--headline-size, clamp(2.5rem, 5.4vw, 4.4rem)) / 1.04 var(--display);
+  font-style: var(--name-style, normal);
+  letter-spacing: var(--headline-tracking, -.01em);
+  text-transform: var(--name-transform, none);
+  color: var(--name-ink, var(--ink));
+  text-shadow: var(--name-shadow, none);
+}
 .lede { max-width: 34ch; margin: 22px 0 28px; font-size: clamp(1.2rem, 2.2vw, 1.45rem); line-height: 1.4; }
 
 .tab { margin: 0 0 32px; padding: 0; max-width: 460px; }
@@ -131,7 +153,20 @@ a { color: var(--link, var(--accent)); }
   height: 100%; display: grid; place-content: center; gap: 10px; text-align: center; padding: 24px;
   color: var(--ink-dim);
 }
-.photo-empty b { font: var(--name-weight) 5rem/1 var(--display); color: var(--photo-q, var(--line)); }
+.photo-glass { width: 72px; height: 72px; margin: 0 auto; color: var(--photo-q, var(--line)); }
+
+/* ── quick facts ────────────────────────── */
+.facts { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--facts-bg, transparent); }
+.facts-list { margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); }
+.facts-list div { padding: 22px 0; }
+.facts-list div:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--line); }
+@media (max-width: 759px) { .facts-list div:nth-child(n+3) { border-top: 1px solid var(--line); } }
+@media (min-width: 760px) {
+  .facts-list { grid-template-columns: repeat(4, 1fr); }
+  .facts-list div + div { padding-left: 24px; border-left: 1px solid var(--line); }
+}
+.facts-list dt { color: var(--ink-dim); font-size: .9rem; }
+.facts-list dd { margin: 4px 0 0; font: var(--heading-weight) clamp(1.3rem, 2.4vw, 1.7rem)/1.15 var(--heading); font-style: var(--heading-style, normal); }
 
 /* ── the profile card ───────────────────── */
 .select { padding: clamp(24px, 4vw, 48px) 0; }
@@ -152,7 +187,7 @@ a { color: var(--link, var(--accent)); }
   font-style: var(--fight-style, normal);
   color: var(--card-accent);
   text-shadow: var(--card-title-shadow, none);
-  text-transform: uppercase; letter-spacing: var(--fight-tracking, .04em);
+  text-transform: var(--card-title-transform, uppercase); letter-spacing: var(--fight-tracking, .04em);
 }
 .fighter { display: grid; gap: clamp(20px, 4vw, 40px); position: relative; z-index: 1; }
 @media (min-width: 780px) { .fighter { grid-template-columns: 260px 1fr; } }
@@ -247,6 +282,33 @@ h2.plain {
 .menu .leader { flex: 1; border-bottom: 2px dotted var(--leader, var(--line)); min-width: 24px; transform: translateY(-5px); }
 .menu span { color: var(--ink-dim); }
 @media (max-width: 560px) { .menu .leader { display: none; } .menu span { flex-basis: 100%; } }
+
+/* ── how booking works ──────────────────── */
+.how { padding: clamp(56px, 8vw, 100px) 0 clamp(24px, 4vw, 48px); }
+.steps { list-style: none; counter-reset: step; margin: 32px 0 0; padding: 0; display: grid; gap: 28px; }
+@media (min-width: 760px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 36px; } }
+.steps li { counter-increment: step; border-top: 2px solid var(--step-rule, var(--ink)); padding-top: 18px; }
+.steps li::before {
+  content: counter(step); display: block; margin-bottom: 10px;
+  font: var(--heading-weight) 2.4rem/1 var(--heading); color: var(--link, var(--accent));
+}
+.steps b { display: block; font-size: 1.15rem; margin-bottom: 6px; }
+.steps span { color: var(--ink-dim); }
+
+/* ── rates and licence ──────────────────── */
+.rates { padding: clamp(40px, 6vw, 72px) 0 clamp(64px, 9vw, 110px); }
+.rates .wrap { display: grid; gap: 24px; }
+@media (min-width: 860px) { .rates .wrap { grid-template-columns: 1fr 1fr; } }
+.rate-card, .licence-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 40px); color: var(--ink);
+}
+.price { margin: 18px 0 10px; font: var(--heading-weight) clamp(3.4rem, 8vw, 5.2rem)/1 var(--heading); font-style: var(--heading-style, normal); }
+.price small { font: 500 1.1rem var(--body); font-style: normal; color: var(--ink-dim); }
+.rate-card p:not(.price) { color: var(--ink-dim); max-width: 40ch; margin: 0 0 24px; }
+.licence-card h3 { margin: 0 0 14px; font: var(--heading-weight) clamp(1.5rem, 2.6vw, 1.9rem)/1.15 var(--heading); font-style: var(--heading-style, normal); }
+.licence-card .tab { max-width: none; margin: 0; }
+.proof-link { display: inline-block; margin-top: 14px; font-weight: 600; }
 
 /* ── booking ────────────────────────────── */
 .book { padding: 0 0 clamp(64px, 9vw, 120px); }

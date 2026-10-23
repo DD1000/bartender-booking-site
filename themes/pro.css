@@ -1,0 +1,91 @@
+/* Professional: crisp white, warm ink and one Campari red */
+:root[data-theme="pro"] {
+  color-scheme: light;
+  --bg: #FFFFFF;
+  --surface: #F5F3F0;
+  --line: #E5E1DB;
+  --leader: #D3CDC5;
+  --ink: #1D1B1A;
+  --ink-dim: #5E5853;
+  --accent: #B3132B;
+  --accent-ink: #FFFFFF;
+  --accent-2: #1D1B1A;
+  --link: #B3132B;
+  --focus: #B3132B;
+  --body: "Hanken Grotesk", system-ui, sans-serif;
+  --display: "Instrument Serif", Georgia, serif;
+  --fight: "Instrument Serif", Georgia, serif;
+  --fight-weight: 400;
+  --fight-tracking: 0;
+  --fs: 1;
+  --name-weight: 400;
+  --name-ink: #1D1B1A;
+  --headline-size: clamp(2.8rem, 6vw, 5rem);
+  --headline-tracking: -.015em;
+  --heading-weight: 400;
+  --heading-tracking: -.01em;
+  --heading-size: clamp(2.4rem, 4.6vw, 3.4rem);
+  --logo-font: "Instrument Serif", Georgia, serif;
+  --logo-weight: 400;
+  --logo-size: 1.7rem;
+  --radius: 6px;
+  --btn-radius: 4px;
+  --btn-weight: 600;
+  --btn-size: 1rem;
+  --top-bg: rgba(255, 255, 255, .94);
+  --photo-radius: 6px;
+  --photo-border: 0;
+  --photo-q: #C9C2B9;
+  --card-bg: #F5F3F0;
+  --card-radius: 8px;
+  --card-ink: #1D1B1A;
+  --card-dim: #5E5853;
+  --card-accent: #B3132B;
+  --card-accent-ink: #FFFFFF;
+  --card-accent-2: #1D1B1A;
+  --card-title-transform: none;
+  --portrait-border: 0;
+  --portrait-radius: 6px;
+  --portrait-bg: #E5E1DB;
+  --select-radius: 4px;
+  --bar-bg: #E5E1DB;
+  --bar-border: 0;
+  --bar-radius: 999px;
+  --bar-fill: #1D1B1A;
+  --bio-bg: transparent;
+  --ticket-bg: #F5F3F0;
+  --ticket-ink: #1D1B1A;
+  --ticket-dim: #5E5853;
+  --ticket-tear: none;
+  --ticket-radius: 8px;
+  --ticket-shadow: none;
+  --field-bg: #FFFFFF;
+  --field-border: #D3CDC5;
+  --field-radius: 4px;
+  --field-focus: rgba(179, 19, 43, .25);
+  --ticket-btn: #B3132B;
+  --ticket-btn-ink: #FFFFFF;
+  --total-font: "Instrument Serif", Georgia, serif;
+  --total-weight: 400;
+  --total-fs: 1.2;
+  --toast-bg: #1D1B1A;
+  --toast-ink: #FFFFFF;
+  --egg-fact-bg: #1D1B1A;
+}
+/* the profile reads as a quiet panel, not a game card */
+html[data-theme="pro"] .screen-title { text-align: left; font-size: var(--heading-size); }
+html[data-theme="pro"] .fighter-name { text-transform: none; font-size: 2.2rem; }
+html[data-theme="pro"] .stat-name,
+html[data-theme="pro"] .moves dt { font: 600 1rem/1.3 var(--body); }
+html[data-theme="pro"] .moves-h { text-transform: none; font-size: 1.9rem; }
+html[data-theme="pro"] .bar { height: 6px; padding: 0; }
+html[data-theme="pro"] .bio { padding: 0 0 0 16px; border-left-width: 2px; }
+html[data-theme="pro"] .menu b { font-weight: 600; }
+html[data-theme="pro"] .menu .leader { border-bottom-style: solid; border-bottom-width: 1px; }
+html[data-theme="pro"] .tab dt::after { border-bottom-style: solid; border-bottom-width: 1px; }
+html[data-theme="pro"] .btn-ghost { border-color: var(--line); color: var(--ink); }
+html[data-theme="pro"] .btn-ghost:hover { background: var(--surface); }
+html[data-theme="pro"] .ticket .btn-main:hover { filter: brightness(1.1); }
+html[data-theme="pro"] .top-book { border-radius: 4px; }
+html[data-theme="pro"] .music { border-radius: 4px; }
+html[data-theme="pro"] .select-btn { min-height: 52px; padding: 0 26px; font: 600 1rem/1 var(--body); }

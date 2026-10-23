@@ -30,6 +30,7 @@
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap">
     <button class="logo" id="logo" type="button" aria-label="Home. Also, try clicking me.">
@@ -40,47 +41,77 @@
         <circle class="glass-cherry" cx="21.5" cy="4" r="2.4"/>
       </svg>
       <span data-cfg="name">Q</span>
+      <small class="logo-sub">Event bartender</small>
     </button>
+    <nav class="nav" aria-label="Sections">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#rates">Rates</a>
+    </nav>
     <div class="top-actions">
       <button class="music" id="music" type="button" aria-pressed="false" aria-label="Background music">
         <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
         <span aria-hidden="true">Music<span id="musicState"> off</span></span>
       </button>
-      <a class="top-book" href="#book">Book</a>
+      <a class="top-book" href="#book"><span class="long">Check availability</span><span class="short">Book</span></a>
     </div>
   </div>
 </header>
 
-<main>
+<main id="main">
   <section class="hero">
     <div class="wrap">
-      <div>
-        <h1 class="name" data-cfg="name">Q</h1>
-        <p class="lede">Bartender for hire. Weddings, parties, and anything you can think of, anywhere in the world.</p>
-        <dl class="tab">
-          <div><dt>Rate</dt><dd>$<span data-cfg="rate">50</span> an hour</dd></div>
-          <div><dt>Experience</dt><dd><span data-cfg="years">12</span> years</dd></div>
-          <div><dt>ABC licence</dt><dd>#<span data-cfg="abc.number">RBS-0000000</span><small>valid through <span data-cfg="abc.expires">MM/YYYY</span></small></dd></div>
-          <div><dt>Travel</dt><dd>Anywhere you need me</dd></div>
-        </dl>
+      <div class="hero-copy">
+        <p class="kicker"><span data-cfg="name">Q</span>, event bartender</p>
+        <h1 class="headline">Bartending for weddings, parties and every event in between.</h1>
+        <p class="lede"><span data-cfg="years">12</span> years behind the bar, ABC licensed, and happy to travel anywhere in the world.</p>
         <div class="ctas">
-          <a class="btn btn-main" href="#book">Request a date</a>
-          <a class="btn btn-ghost" href="#profile">About me</a>
+          <a class="btn btn-main" href="#book">Check availability</a>
+          <a class="btn btn-ghost" href="#rates">See rates</a>
         </div>
       </div>
       <figure class="photo">
         <div class="photo-frame" id="photoFrame">
           <img id="photo" alt="">
-          <div class="photo-empty"><b aria-hidden="true">?</b>Photo coming soon</div>
+          <div class="photo-empty"><svg class="photo-glass" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h22L16 18Z"/><path d="M16 18v9m-5.5 0h11"/><path d="M21 3.5 17 13"/><circle cx="21.5" cy="4" r="2.4"/></svg><span>Photo coming soon</span></div>
         </div>
       </figure>
     </div>
   </section>
 
-  <section class="select" id="profile" aria-labelledby="profile-h">
+  <section class="facts" aria-label="Quick facts">
+    <div class="wrap">
+      <dl class="facts-list">
+        <div><dt>Experience</dt><dd><span data-cfg="years">12</span> years</dd></div>
+        <div><dt>Rate</dt><dd>$<span data-cfg="rate">50</span> an hour</dd></div>
+        <div><dt>Licence</dt><dd>ABC certified</dd></div>
+        <div><dt>Travel</dt><dd>Worldwide</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="events" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <div>
+        <h2 class="plain" id="services-h">Events I work</h2>
+        <p class="events-intro">If there's a party, I'll bring the bar to it. Same rate for every kind of event.</p>
+      </div>
+      <ul class="menu">
+        <li><b>Weddings</b><i class="leader"></i><span>cocktail hour through the last dance</span></li>
+        <li><b>Birthdays</b><i class="leader"></i><span>the big milestones and the backyard ones</span></li>
+        <li><b>House parties</b><i class="leader"></i><span>your kitchen becomes a bar for the night</span></li>
+        <li><b>Engagements and anniversaries</b><i class="leader"></i><span>a toast that deserves a real drink</span></li>
+        <li><b>Work events</b><i class="leader"></i><span>holiday parties, launches, mixers</span></li>
+        <li><b>Festivals and pop-ups</b><i class="leader"></i><span>long lines, kept moving</span></li>
+        <li><b>Anything else</b><i class="leader"></i><span>tell me about it below</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="select" id="about" aria-labelledby="about-h">
     <div class="wrap">
       <div class="screen" id="screen">
-        <h2 class="screen-title" id="profile-h">At a glance</h2>
+        <h2 class="screen-title" id="about-h">At a glance</h2>
         <div class="fighter">
           <div class="fighter-id">
             <div class="portrait" id="portraitBox">
@@ -89,7 +120,7 @@
             </div>
             <p class="fighter-name" data-cfg="name">Q</p>
             <p class="fighter-class">Bartender and mixologist, <span data-cfg="years">12</span> years</p>
-            <button class="select-btn" id="selectBtn" type="button">Request a date</button>
+            <button class="select-btn" id="selectBtn" type="button">Check availability</button>
           </div>
           <div>
             <ul class="stats" id="stats" aria-label="Skills">
@@ -114,28 +145,42 @@
     </div>
   </section>
 
-  <section class="events" aria-labelledby="events-h">
+  <section class="how" aria-labelledby="how-h">
     <div class="wrap">
-      <div>
-        <h2 class="plain" id="events-h">What I pour for</h2>
-        <p class="events-intro">If there's a party, I'll bring the bar to it. Same rate for every kind of event.</p>
+      <h2 class="plain" id="how-h">How booking works</h2>
+      <ol class="steps">
+        <li><b>Send a request</b><span>Pick a date and tell me about the event and where it is.</span></li>
+        <li><b>I confirm by email</b><span>We go over the hours, the drinks and any travel.</span></li>
+        <li><b>I show up ready</b><span>Behind the bar and pouring when your guests arrive.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="rates" id="rates" aria-labelledby="rates-h">
+    <div class="wrap">
+      <div class="rate-card">
+        <h2 class="plain" id="rates-h">Rates</h2>
+        <p class="price">$<span data-cfg="rate">50</span><small> an hour</small></p>
+        <p>One rate for every kind of event, wherever it is. The booking form shows your estimated total as you fill it in.</p>
+        <a class="btn btn-main" href="#book">Check availability</a>
       </div>
-      <ul class="menu">
-        <li><b>Weddings</b><i class="leader"></i><span>cocktail hour through the last dance</span></li>
-        <li><b>Birthdays</b><i class="leader"></i><span>the big milestones and the backyard ones</span></li>
-        <li><b>House parties</b><i class="leader"></i><span>your kitchen becomes a bar for the night</span></li>
-        <li><b>Engagements and anniversaries</b><i class="leader"></i><span>a toast that deserves a real drink</span></li>
-        <li><b>Work events</b><i class="leader"></i><span>holiday parties, launches, mixers</span></li>
-        <li><b>Festivals and pop-ups</b><i class="leader"></i><span>long lines, kept moving</span></li>
-        <li><b>Anything else</b><i class="leader"></i><span>tell me about it below</span></li>
-      </ul>
+      <div class="licence-card">
+        <h3>Licensed and certified</h3>
+        <dl class="tab">
+          <div><dt>ABC licence</dt><dd>#<span data-cfg="abc.number">RBS-0000000</span></dd></div>
+          <div><dt>Issued by</dt><dd data-cfg="abc.issuer">California ABC</dd></div>
+          <div><dt>Valid through</dt><dd data-cfg="abc.expires">MM/YYYY</dd></div>
+          <div><dt>Experience</dt><dd><span data-cfg="years">12</span> years</dd></div>
+        </dl>
+        <a id="abcProof" class="proof-link" href="#" target="_blank" rel="noopener" hidden>View certificate</a>
+      </div>
     </div>
   </section>
 
   <section class="book" id="book" aria-labelledby="book-h">
     <div class="wrap">
       <div class="ticket">
-        <h2 class="plain" id="book-h">Request a date</h2>
+        <h2 class="plain" id="book-h">Check availability</h2>
         <p class="ticket-intro">Tell me when, where and what's happening. I'll get your request by email and reply to confirm.</p>
 
         <form class="form" id="bookForm" novalidate>
@@ -194,7 +239,7 @@
             <output id="total" for="f-hours">$200</output>
           </div>
           <div class="f-6 submit-row">
-            <button class="btn btn-main" id="submitBtn" type="submit">Request this date</button>
+            <button class="btn btn-main" id="submitBtn" type="submit">Send request</button>
             <a class="btn btn-ghost" id="calLink" href="#" target="_blank" rel="noopener" hidden>Pick a time on my calendar</a>
           </div>
           <p class="f-6 status" id="status" role="status" aria-live="polite"></p>
@@ -206,7 +251,7 @@
 
 <footer>
   <div class="wrap">
-    <p>© <span id="year">2026</span> <span data-cfg="name">Q</span>. ABC licence #<span data-cfg="abc.number">RBS-0000000</span>, <span data-cfg="abc.issuer">California ABC</span>.<a id="abcProof" href="#" target="_blank" rel="noopener" hidden> View certificate</a></p>
+    <p>© <span id="year">2026</span> <span data-cfg="name">Q</span>, event bartender. ABC licence #<span data-cfg="abc.number">RBS-0000000</span>.</p>
     <p><a id="insta" href="#" target="_blank" rel="noopener" hidden>Instagram</a></p>
   </div>
 </footer>
