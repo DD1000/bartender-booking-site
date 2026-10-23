@@ -14,7 +14,7 @@ It's plain HTML. No build step and nothing to install.
 
 ## Styles
 
-The site comes in 10 styles with the same content: Professional (the default), Speakeasy, Tiki Pool Party, Manga Izakaya, Neon Dive Bar, Champagne, Lo-fi Sunset, Chalkboard, Punk Flyer and 70s Disco.
+The site comes in 10 styles with the same content: Cocktail Bar (the default), Speakeasy, Tiki Pool Party, Manga Izakaya, Neon Dive Bar, Champagne, Lo-fi Sunset, Chalkboard, Punk Flyer and 70s Disco.
 
 - While choosing, the **Style** button in the bottom corner flips between them. Every switch updates the address, so a link like `…/?style=disco` opens straight into that look.
 - To lock one in: set `style` in `config.js` to its id and `showStylePicker` to `false`.
