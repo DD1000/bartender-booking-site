@@ -1,0 +1,17 @@
+/* Rosé Last Call: rosé pink on wine, painted-sign lettering */
+:root[data-theme="rose"] {
+  --bg: #1A0B11;
+  --surface: #26111A;
+  --field-bg: #150910;
+  --field-border: #45222F;
+  --cream: 250, 232, 236;
+  --glow: 255, 143, 163;
+  --glow-2: 150, 30, 70;
+  --spark: 255, 200, 120;
+  --ink: #FAE8EC;
+  --ink-dim: #C9A6B0;
+  --accent: #FF8FA3;
+  --accent-ink: #1A0B11;
+  --display: "Big Shoulders Stencil Display", Impact, sans-serif;
+  --body: "Albert Sans", system-ui, sans-serif;
+}

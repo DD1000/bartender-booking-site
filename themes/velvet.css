@@ -1,0 +1,30 @@
+/* Velvet Lounge: magenta and violet on plum */
+:root[data-theme="velvet"] {
+  --bg: #12081A;
+  --surface: #1B0F26;
+  --field-bg: #0F0716;
+  --field-border: #3A2650;
+  --cream: 244, 230, 250;
+  --glow: 255, 79, 176;
+  --glow-2: 98, 60, 220;
+  --spark: 255, 196, 92;
+  --ink: #F4E6FA;
+  --ink-dim: #BCA6C8;
+  --accent: #FF4FB0;
+  --accent-ink: #1A0614;
+  --display: "Syne", system-ui, sans-serif;
+  --body: "Albert Sans", system-ui, sans-serif;
+  --headline-size: clamp(2.2rem, 3.9vw, 3.8rem);
+  --logo-font: var(--body);
+  --headline-lh: .98;
+  --headline-tracking: -.01em;
+  --heading-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  --heading-tracking: -.01em;
+  --name-shadow: 0 0 60px rgba(var(--glow), .35);
+}
+/* velvet: a soft violet haze under everything */
+html[data-theme="velvet"] .hero::after {
+  content: ""; position: absolute; left: 30%; right: -20%; bottom: -20%; height: 70%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(var(--glow-2), .28), transparent); filter: blur(20px);
+}
+html[data-theme="velvet"] .headline { max-width: 17ch; }

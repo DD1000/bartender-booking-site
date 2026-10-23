@@ -1,0 +1,26 @@
+/* Negroni: bitter orange and campari red */
+:root[data-theme="negroni"] {
+  --bg: #1A0907;
+  --surface: #24100D;
+  --field-bg: #150806;
+  --field-border: #43221C;
+  --cream: 247, 228, 214;
+  --glow: 240, 106, 44;
+  --glow-2: 176, 18, 42;
+  --spark: 255, 186, 73;
+  --ink: #F7E4D6;
+  --ink-dim: #C9A898;
+  --accent: #F06A2C;
+  --accent-ink: #1A0907;
+  --display: "Antonio", Impact, sans-serif;
+  --body: "Figtree", system-ui, sans-serif;
+  --name-weight: 700;
+  --heading-weight: 700;
+  --fight-weight: 700;
+  --logo-weight: 700;
+}
+/* a twist of orange peel across the hero */
+html[data-theme="negroni"] .hero::after {
+  content: ""; position: absolute; right: -10%; top: 18%; width: 60%; height: 2px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(var(--glow), .6), transparent); transform: rotate(-8deg);
+}

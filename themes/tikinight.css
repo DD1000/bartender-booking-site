@@ -1,0 +1,30 @@
+/* Tiki Torch: torch orange and lagoon teal after dark */
+:root[data-theme="tikinight"] {
+  --bg: #08130F;
+  --surface: #0F1F19;
+  --field-bg: #07100C;
+  --field-border: #20382E;
+  --cream: 245, 233, 214;
+  --glow: 255, 122, 69;
+  --glow-2: 20, 110, 100;
+  --spark: 46, 196, 182;
+  --ink: #F5E9D6;
+  --ink-dim: #B5B7A3;
+  --accent: #FF7A45;
+  --accent-ink: #1A0A04;
+  --display: "Lilita One", Impact, sans-serif;
+  --body: "Outfit", system-ui, sans-serif;
+  --name-weight: 400;
+  --headline-lh: .95;
+  --headline-size: clamp(2.9rem, 5.4vw, 5.2rem);
+  --heading-weight: 400;
+  --fight-weight: 400;
+  --logo-weight: 400;
+  --total-weight: 400;
+  --radius: 14px;
+  --btn-radius: 999px;
+}
+/* torchlight flickers */
+html[data-theme="tikinight"] .hero::before { animation: flicker 3.2s ease-in-out infinite; }
+@keyframes flicker { 0%, 100% { opacity: 1; } 40% { opacity: .82; } 55% { opacity: .95; } 70% { opacity: .78; } }
+html[data-theme="tikinight"] .music, html[data-theme="tikinight"] .top-book, html[data-theme="tikinight"] .select-btn { border-radius: 999px; }

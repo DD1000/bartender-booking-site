@@ -1,0 +1,31 @@
+/* Bourbon: copper and barrel-char, label lettering */
+:root[data-theme="bourbon"] {
+  --bg: #130B05;
+  --surface: #1E120A;
+  --field-bg: #110904;
+  --field-border: #3E2814;
+  --cream: 245, 226, 200;
+  --glow: 214, 137, 58;
+  --glow-2: 107, 58, 30;
+  --spark: 196, 64, 40;
+  --ink: #F5E2C8;
+  --ink-dim: #C2A585;
+  --accent: #D6893A;
+  --accent-ink: #130B05;
+  --display: "DM Serif Display", Georgia, serif;
+  --body: "Karla", system-ui, sans-serif;
+  --name-weight: 400;
+  --name-transform: none;
+  --headline-lh: 1;
+  --headline-tracking: -.01em;
+  --headline-size: clamp(3rem, 5.8vw, 5.6rem);
+  --heading-weight: 400;
+  --heading-transform: none;
+  --heading-tracking: -.005em;
+  --fight-weight: 400;
+  --logo-weight: 400;
+  --total-weight: 400;
+}
+/* a thin copper rule frames the hero, like a bottle label */
+html[data-theme="bourbon"] .hero .wrap { border-top: 1px solid rgba(var(--glow), .3); border-bottom: 1px solid rgba(var(--glow), .3); padding-top: 40px; padding-bottom: 40px; }
+html[data-theme="bourbon"] .headline { max-width: 16ch; }

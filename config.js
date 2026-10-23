@@ -6,8 +6,8 @@ window.SITE = {
   // Shown in the header, page title and profile card.
   name: "Q",
 
-  // The site's look: one of the ids in themes.js (night, deco, tiki, manga, neon,
-  // wedding, lofi, chalk, zine, disco).
+  // The site's look: one of the ids in themes.js (night, negroni, absinthe, midnight,
+  // bourbon, champagne, tikinight, velvet, mezcal, rose).
   style: "night",
   // While choosing, a "Style" button lets visitors flip through every look.
   // Set to false once the style is picked.

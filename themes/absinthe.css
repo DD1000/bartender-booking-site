@@ -1,0 +1,27 @@
+/* Absinthe: green-fairy glow with gold */
+:root[data-theme="absinthe"] {
+  --bg: #07120E;
+  --surface: #0E1D17;
+  --field-bg: #06100C;
+  --field-border: #23382F;
+  --cream: 230, 240, 222;
+  --glow: 140, 214, 120;
+  --glow-2: 26, 92, 64;
+  --spark: 233, 196, 106;
+  --ink: #E6F0DE;
+  --ink-dim: #A4B8A6;
+  --accent: #8CD678;
+  --accent-ink: #07120E;
+  --display: "Fraunces", Georgia, serif;
+  --body: "Albert Sans", system-ui, sans-serif;
+  --name-transform: none;
+  --name-style: italic;
+  --headline-lh: .98;
+  --headline-tracking: -.01em;
+  --headline-size: clamp(3rem, 5.8vw, 5.6rem);
+  --heading-transform: none;
+  --heading-style: italic;
+  --heading-tracking: -.01em;
+}
+/* the glass glows green, the cherry turns gold */
+html[data-theme="absinthe"] .headline { max-width: 16ch; }

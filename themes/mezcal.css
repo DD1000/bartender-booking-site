@@ -1,0 +1,30 @@
+/* Mezcal Smoke: ember orange through smoke */
+:root[data-theme="mezcal"] {
+  --bg: #14120F;
+  --surface: #1E1B17;
+  --field-bg: #110F0D;
+  --field-border: #3A352E;
+  --cream: 236, 230, 220;
+  --glow: 230, 108, 60;
+  --glow-2: 90, 86, 80;
+  --spark: 214, 180, 120;
+  --ink: #ECE6DC;
+  --ink-dim: #ADA59A;
+  --accent: #E66C3C;
+  --accent-ink: #14120F;
+  --display: "Archivo", system-ui, sans-serif;
+  --body: "Archivo", system-ui, sans-serif;
+  --headline-size: clamp(2.3rem, 4.1vw, 4rem);
+  --headline-lh: .95;
+  --heading-size: clamp(2.2rem, 4.4vw, 3.6rem);
+}
+/* expanded lettering for every headline and sign */
+html[data-theme="mezcal"] .headline, html[data-theme="mezcal"] h2.plain, html[data-theme="mezcal"] .screen-title, html[data-theme="mezcal"] .facts-list dd, html[data-theme="mezcal"] .menu b, html[data-theme="mezcal"] .steps b,
+html[data-theme="mezcal"] .steps li::before, html[data-theme="mezcal"] .price, html[data-theme="mezcal"] .logo, html[data-theme="mezcal"] .moves-h, html[data-theme="mezcal"] .moves dt, html[data-theme="mezcal"] .licence-card h3, html[data-theme="mezcal"] .total output, html[data-theme="mezcal"] .fighter-name { font-stretch: 125%; }
+html[data-theme="mezcal"] .headline { max-width: 17ch; }
+/* drifting smoke */
+html[data-theme="mezcal"] .hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35;
+  background: radial-gradient(40% 25% at 70% 40%, rgba(var(--cream), .08), transparent 70%), radial-gradient(30% 20% at 85% 70%, rgba(var(--cream), .06), transparent 70%);
+  filter: blur(18px);
+}

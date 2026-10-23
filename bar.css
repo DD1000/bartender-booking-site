@@ -1,0 +1,189 @@
+/* The dark-bar look every style shares: pools of light, out-of-focus bar
+   lights, film grain, sign lettering and a glowing glass. Each file in
+   themes/ only sets the primitives at the top (its colours and fonts) and
+   adds a signature touch or two. */
+:root {
+  color-scheme: dark;
+
+  /* primitives: what a variant sets */
+  --bg: #160D0A;            /* the room */
+  --surface: #1F1310;       /* cards and the booking form */
+  --field-bg: #140B09;
+  --field-border: #3A2A22;
+  --cream: 243, 230, 211;   /* text colour as r, g, b for see-through rules */
+  --glow: 232, 160, 76;     /* the main light */
+  --glow-2: 158, 43, 37;    /* the second, darker pool of light */
+  --spark: 217, 87, 76;     /* small hot lights: the cherry, a few bokeh */
+  --ink: #F3E6D3;
+  --ink-dim: #BFAE98;
+  --accent: #E8A04C;
+  --accent-ink: #1A0F0C;
+
+  /* everything else follows from those */
+  --bg-image:
+    radial-gradient(60% 45% at 88% 4%, rgba(var(--glow), .16), transparent 70%),
+    radial-gradient(45% 40% at -5% 55%, rgba(var(--glow-2), .16), transparent 70%),
+    radial-gradient(50% 30% at 50% 100%, rgba(var(--glow), .07), transparent 70%);
+  --line: rgba(var(--cream), .12);
+  --leader: rgba(var(--glow), .35);
+  --accent-2: rgb(var(--glow-2));
+  --link: var(--accent);
+  --focus: var(--accent);
+  --fight: var(--display);
+  --fight-weight: 800;
+  --fight-tracking: .02em;
+  --fs: .9;
+  --name-weight: 900;
+  --name-transform: uppercase;
+  --name-ink: var(--ink);
+  --name-shadow: 0 0 48px rgba(var(--glow), .22);
+  --headline-size: clamp(3.2rem, 6.4vw, 6.2rem);
+  --headline-lh: .9;
+  --headline-tracking: .005em;
+  --heading-weight: 800;
+  --heading-transform: uppercase;
+  --heading-tracking: .01em;
+  --heading-size: clamp(2.6rem, 5.4vw, 4.4rem);
+  --logo-font: var(--display);
+  --logo-weight: 900;
+  --logo-size: 1.8rem;
+  --radius: 4px;
+  --btn-radius: 2px;
+  --btn-weight: 700;
+  --btn-size: .9rem;
+  --btn-transform: uppercase;
+  --btn-tracking: .1em;
+  --btn-shadow: 0 0 34px rgba(var(--glow), .35);
+  --top-bg: color-mix(in srgb, var(--bg) 82%, transparent);
+  --top-border: 1px solid rgba(var(--cream), .08);
+  --photo-radius: 2px;
+  --photo-border: 0;
+  --photo-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(var(--glow), .35);
+  --photo-q: var(--accent);
+  --card-bg: linear-gradient(180deg, rgba(var(--cream), .05), rgba(var(--cream), .015));
+  --card-border: 1px solid rgba(var(--glow), .28);
+  --card-radius: 4px;
+  --card-ink: var(--ink);
+  --card-dim: var(--ink-dim);
+  --card-accent: var(--accent);
+  --card-accent-ink: var(--accent-ink);
+  --card-accent-2: rgb(var(--spark));
+  --portrait-border: 0;
+  --portrait-radius: 2px;
+  --portrait-bg: var(--surface);
+  --portrait-shadow: 0 0 0 1px rgba(var(--glow), .35), 0 20px 50px rgba(0,0,0,.5);
+  --select-radius: 2px;
+  --bar-bg: rgba(var(--cream), .1);
+  --bar-border: 0;
+  --bar-radius: 999px;
+  --bar-fill: linear-gradient(90deg, rgb(var(--glow-2)), var(--accent));
+  --bio-bg: transparent;
+  --step-rule: rgba(var(--glow), .4);
+  --ticket-bg: var(--surface);
+  --ticket-ink: var(--ink);
+  --ticket-dim: var(--ink-dim);
+  --ticket-head: var(--ink);
+  --ticket-tear: none;
+  --ticket-radius: 4px;
+  --ticket-border: 1px solid rgba(var(--glow), .28);
+  --ticket-shadow: 0 30px 80px rgba(0,0,0,.45);
+  --field-radius: 2px;
+  --field-focus: rgba(var(--glow), .35);
+  --ticket-btn: var(--accent);
+  --ticket-btn-ink: var(--accent-ink);
+  --total-font: var(--display);
+  --total-weight: 800;
+  --total-fs: 1.3;
+  --ok: #8FD9A0;
+  --err: #FF9C8F;
+  --toast-bg: var(--accent);
+  --toast-ink: var(--accent-ink);
+  --egg-bg: var(--accent);
+  --egg-fact-bg: var(--surface);
+}
+
+/* film grain over the whole page */
+html body::after {
+  content: ""; position: fixed; inset: 0; z-index: 30; pointer-events: none; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── hero: out-of-focus bar lights behind big sign lettering ── */
+html .hero { position: relative; display: grid; align-items: center; }
+@media (min-width: 860px) { html .hero { min-height: min(88vh, 860px); } }
+html .hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; filter: blur(3px);
+  background:
+    radial-gradient(circle at 72% 22%, rgba(var(--glow), .35) 0 10px, transparent 26px),
+    radial-gradient(circle at 81% 64%, rgba(var(--glow), .22) 0 18px, transparent 40px),
+    radial-gradient(circle at 93% 38%, rgba(var(--spark), .25) 0 8px, transparent 22px),
+    radial-gradient(circle at 63% 78%, rgba(var(--cream), .12) 0 6px, transparent 18px),
+    radial-gradient(circle at 55% 12%, rgba(var(--glow), .18) 0 5px, transparent 16px),
+    radial-gradient(circle at 98% 85%, rgba(var(--glow), .2) 0 12px, transparent 30px),
+    radial-gradient(circle at 40% 92%, rgba(var(--spark), .14) 0 9px, transparent 24px);
+}
+html .hero .wrap { position: relative; z-index: 1; }
+@media (min-width: 860px) { html .hero .wrap { grid-template-columns: 1.35fr .65fr; } }
+html .headline { max-width: 15ch; }
+html .kicker { font: 600 .95rem/1.3 var(--body); letter-spacing: .14em; text-transform: uppercase; }
+html .lede { color: var(--ink-dim); }
+html .btn-ghost { border-color: rgba(var(--cream), .3); color: var(--ink); }
+html .btn-ghost:hover { border-color: var(--accent); background: rgba(var(--glow), .08); }
+
+/* no photo yet: a glowing glass instead of an empty box */
+html .photo-frame:not(.has-photo) { background: transparent; box-shadow: none; }
+html .photo-frame:not(.has-photo) .photo-empty span { display: none; }
+html .photo-glass {
+  width: min(78%, 340px); height: auto; aspect-ratio: 1;
+  filter: drop-shadow(0 0 10px rgba(var(--glow), .7)) drop-shadow(0 0 40px rgba(var(--glow), .35));
+}
+@media (max-width: 859px) {
+  html .photo-frame:not(.has-photo) { aspect-ratio: auto; height: 220px; }
+  html .photo-glass { width: 180px; }
+}
+html .photo-glass * { vector-effect: non-scaling-stroke; stroke-width: 2.5px; }
+html .portrait-empty .photo-glass { filter: drop-shadow(0 0 8px rgba(var(--glow), .6)); }
+html .photo-glass circle { fill: rgb(var(--spark)); stroke: rgb(var(--spark)); }
+
+/* ── quick facts as big sign lettering ── */
+html .facts { background: rgba(0,0,0,.18); }
+html .facts-list dd { font: var(--heading-weight) clamp(1.8rem, 3.4vw, 2.6rem)/1 var(--display); font-style: var(--heading-style, normal); text-transform: var(--heading-transform); color: var(--accent); }
+
+/* ── events read like a drinks menu ── */
+html .menu b { font: var(--heading-weight) 1.6rem/1.1 var(--display); font-style: var(--heading-style, normal); text-transform: var(--heading-transform); letter-spacing: .02em; }
+html .menu span { font-style: italic; }
+html .menu li { border-bottom-color: rgba(var(--cream), .08); }
+
+/* ── profile ── */
+html .screen-title { text-align: left; font-size: var(--heading-size); text-transform: var(--heading-transform); font-style: var(--heading-style, normal); }
+html .stat-name { font: 600 1rem/1.3 var(--body); }
+html .bar { height: 5px; padding: 0; }
+html .bar i { box-shadow: 0 0 12px rgba(var(--glow), .45); }
+html .moves-h { text-transform: var(--heading-transform); font-style: var(--heading-style, normal); }
+html .moves dt { color: var(--accent); text-transform: var(--heading-transform); font-style: var(--heading-style, normal); font-size: 1.35rem; }
+html .fighter-name { text-transform: var(--heading-transform); }
+html .bio { padding: 4px 0 4px 18px; border-left-width: 2px; color: var(--ink-dim); }
+html .select-btn { min-height: 52px; padding: 0 26px; font: 700 .9rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase; box-shadow: var(--btn-shadow); }
+
+/* ── how it works: oversized outlined step numbers ── */
+html .steps li::before {
+  content: counter(step, decimal-leading-zero);
+  font: 900 clamp(4rem, 8vw, 6rem)/.9 var(--display);
+  color: transparent; -webkit-text-stroke: 1.5px var(--accent);
+}
+html .steps b { font: var(--heading-weight) 1.5rem/1.1 var(--display); font-style: var(--heading-style, normal); text-transform: var(--heading-transform); letter-spacing: .02em; }
+
+/* ── rates: the price glows ── */
+html .rate-card,
+html .licence-card { background: linear-gradient(180deg, rgba(var(--cream), .05), rgba(var(--cream), .015)); border-color: rgba(var(--glow), .25); }
+html .price { color: var(--accent); text-shadow: 0 0 40px rgba(var(--glow), .4); }
+html .licence-card h3 { text-transform: var(--heading-transform); }
+
+/* ── booking ── */
+html .ticket .btn-main { box-shadow: var(--btn-shadow); }
+html .total output { color: var(--accent); }
+html .field input:focus,
+html .field select:focus,
+html .field textarea:focus { border-color: var(--accent); }
+html .music { border-radius: 2px; }
+html .top-book { border-radius: 2px; text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; }

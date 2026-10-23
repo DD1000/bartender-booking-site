@@ -14,12 +14,11 @@ It's plain HTML. No build step and nothing to install.
 
 ## Styles
 
-The site comes in 10 styles with the same content: Cocktail Bar (the default), Speakeasy, Tiki Pool Party, Manga Izakaya, Neon Dive Bar, Champagne, Lo-fi Sunset, Chalkboard, Punk Flyer and 70s Disco.
+The site comes in 10 variations on one dark cocktail-bar look: Cocktail Bar (the default), Negroni, Absinthe, Midnight Martini, Bourbon, Champagne Noir, Tiki Torch, Velvet Lounge, Mezcal Smoke and Rosé Last Call.
 
 - While choosing, the **Style** button in the bottom corner flips between them. Every switch updates the address, so a link like `…/?style=disco` opens straight into that look.
 - To lock one in: set `style` in `config.js` to its id and `showStylePicker` to `false`.
-- Each style is one file in `themes/`; the layout they share is `base.css`, and the list lives in `themes.js`.
-- Tiki and Punk Flyer play a chiptune version of the music; the rest play a softer lo-fi version.
+- The layout is `base.css` and the shared bar look (light, bokeh, grain, glowing glass) is `bar.css`. Each variant is one small file in `themes/` that sets its colours and fonts, and the list lives in `themes.js`.
 
 ## Put it online (GitHub Pages, free)
 
@@ -34,7 +33,7 @@ The site appears at `https://<username>.github.io/<repo>/` after a minute or two
 
 ## The fun bits
 
-- **Music:** a lo-fi loop (chiptune in some styles), generated live in the browser (no audio file, no licensing). It plays quietly and starts on the visitor's first tap or key press, since browsers block sound before that. The Music button turns it off, and the choice is remembered.
+- **Music:** a lo-fi loop, generated live in the browser (no audio file, no licensing). It plays quietly and starts on the visitor's first tap or key press, since browsers block sound before that. The Music button turns it off, and the choice is remembered.
 - **Logo:** click the cocktail glass for a random anime reaction or a bar fact. It's a hidden extra, so nothing on the page points to it.
 - **Check availability** on the profile card jumps to the booking form.
 

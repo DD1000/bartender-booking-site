@@ -1,0 +1,34 @@
+/* Champagne Noir: pale gold and rosé on black */
+:root[data-theme="champagne"] {
+  --bg: #0E0C0B;
+  --surface: #191614;
+  --field-bg: #0B0A09;
+  --field-border: #36302B;
+  --cream: 244, 236, 222;
+  --glow: 241, 217, 160;
+  --glow-2: 120, 90, 80;
+  --spark: 222, 160, 170;
+  --ink: #F4ECDE;
+  --ink-dim: #B9AE9E;
+  --accent: #F1D9A0;
+  --accent-ink: #0E0C0B;
+  --display: "Bodoni Moda", Didot, Georgia, serif;
+  --body: "Jost", system-ui, sans-serif;
+  --name-weight: 700;
+  --headline-lh: 1;
+  --headline-tracking: .03em;
+  --headline-size: clamp(2.6rem, 5vw, 4.8rem);
+  --heading-weight: 700;
+  --heading-tracking: .06em;
+  --heading-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  --fight-weight: 700;
+  --logo-weight: 700;
+  --total-weight: 700;
+}
+/* fine bubbles rising in the hero */
+html[data-theme="champagne"] .hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background: radial-gradient(rgba(var(--glow), .5) 1px, transparent 1.6px) 0 0 / 46px 58px;
+  mask: linear-gradient(90deg, transparent 50%, #000);
+}
+html[data-theme="champagne"] .headline { max-width: 18ch; }

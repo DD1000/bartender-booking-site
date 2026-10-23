@@ -1,0 +1,21 @@
+/* Midnight Martini: ice-blue light on navy */
+:root[data-theme="midnight"] {
+  --bg: #090E1A;
+  --surface: #111829;
+  --field-bg: #080C16;
+  --field-border: #26314A;
+  --cream: 228, 236, 250;
+  --glow: 142, 197, 255;
+  --glow-2: 46, 64, 140;
+  --spark: 232, 160, 76;
+  --ink: #E4ECFA;
+  --ink-dim: #A3B0C8;
+  --accent: #8EC5FF;
+  --accent-ink: #090E1A;
+  --display: "Barlow Condensed", Impact, sans-serif;
+  --body: "Manrope", system-ui, sans-serif;
+  --name-style: italic;
+  --heading-style: italic;
+}
+/* a cold, clear light: sharper bokeh */
+html[data-theme="midnight"] .hero::before { filter: blur(1.5px); }
