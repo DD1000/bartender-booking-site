@@ -147,7 +147,13 @@ html .photo-glass circle { fill: rgb(var(--spark)); stroke: rgb(var(--spark)); }
 
 /* ── quick facts as big sign lettering ── */
 html .facts { background: rgba(0,0,0,.18); }
-html .facts-list dd { font: var(--heading-weight) clamp(1.8rem, 3.4vw, 2.6rem)/1 var(--display); font-style: var(--heading-style, normal); text-transform: var(--heading-transform); color: var(--accent); }
+html .facts-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 760px) { html .facts-list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+html .facts-list dd { font: var(--heading-weight) var(--facts-size, clamp(1.8rem, 3.4vw, 2.6rem))/1 var(--display); font-style: var(--heading-style, normal); text-transform: var(--heading-transform); color: var(--accent); }
+
+/* wide lettering wraps a long word instead of pushing the page sideways */
+html .headline, html h2.plain, html .screen-title, html .menu b, html .moves dt, html .facts-list dd, html .price { overflow-wrap: break-word; }
+html .moves dt { white-space: normal; }
 
 /* ── events read like a drinks menu ── */
 html .menu b { font: var(--heading-weight) 1.6rem/1.1 var(--display); font-style: var(--heading-style, normal); text-transform: var(--heading-transform); letter-spacing: .02em; }

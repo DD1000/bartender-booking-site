@@ -14,9 +14,10 @@
   --accent-ink: #14120F;
   --display: "Archivo", system-ui, sans-serif;
   --body: "Archivo", system-ui, sans-serif;
-  --headline-size: clamp(2.3rem, 4.1vw, 4rem);
+  --headline-size: clamp(2rem, 4.1vw, 4rem);
+  --facts-size: clamp(1.15rem, 2.8vw, 2.2rem);
   --headline-lh: .95;
-  --heading-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  --heading-size: clamp(1.8rem, 4.4vw, 3.6rem);
 }
 /* expanded lettering for every headline and sign */
 html[data-theme="mezcal"] .headline, html[data-theme="mezcal"] h2.plain, html[data-theme="mezcal"] .screen-title, html[data-theme="mezcal"] .facts-list dd, html[data-theme="mezcal"] .menu b, html[data-theme="mezcal"] .steps b,

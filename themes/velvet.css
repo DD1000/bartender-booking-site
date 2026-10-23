@@ -14,11 +14,12 @@
   --accent-ink: #1A0614;
   --display: "Syne", system-ui, sans-serif;
   --body: "Albert Sans", system-ui, sans-serif;
-  --headline-size: clamp(2.2rem, 3.9vw, 3.8rem);
+  --headline-size: clamp(1.9rem, 3.9vw, 3.8rem);
+  --heading-size: clamp(1.7rem, 4.4vw, 3.6rem);
+  --facts-size: clamp(1.1rem, 2.6vw, 2rem);
   --logo-font: var(--body);
   --headline-lh: .98;
   --headline-tracking: -.01em;
-  --heading-size: clamp(2.2rem, 4.4vw, 3.6rem);
   --heading-tracking: -.01em;
   --name-shadow: 0 0 60px rgba(var(--glow), .35);
 }
