@@ -35,6 +35,23 @@ window.SITE = {
     proof: "",
   },
 
+  // Travel: priced by how far the event is from home, worked out as the client types their city.
+  travel: {
+    // Where trips start. lat/lon: right-click the spot in Google Maps and copy the two numbers.
+    home: { name: "Los Angeles", lat: 34.0522, lon: -118.2437 },
+    freeMiles: 25,        // no travel charge this close to home
+    driveUpTo: 300,       // up to here it's a drive; further, it's a flight
+    perMile: 0.70,        // driving, charged on the road miles there and back past freeMiles
+    roadFactor: 1.25,     // road miles are about this much longer than a straight line
+    overnightOver: 150,   // a drive further than this adds a hotel night
+    hotelNight: 150,      // per night
+    flightBase: 150,      // flight estimate: this plus flightPerMile × miles (round trip)
+    flightPerMile: 0.15,
+    longHaulOver: 2500,   // flights further than this take a travel day each way instead of one
+    travelDayFee: 150,    // per day spent travelling
+    perDiem: 60,          // meals, per day away
+  },
+
   // Optional: shown in the footer if filled in.
   instagram: "",  // e.g. "https://instagram.com/yourhandle"
 };

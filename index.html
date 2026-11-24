@@ -48,6 +48,7 @@
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#rates">Rates</a>
+      <a href="#travel">Travel</a>
     </nav>
     <div class="top-actions">
       <button class="music" id="music" type="button" aria-pressed="false" aria-label="Background music">
@@ -162,7 +163,7 @@
       <div class="rate-card">
         <h2 class="plain" id="rates-h">Rates</h2>
         <p class="price">$<span data-cfg="rate">50</span><small> an hour</small></p>
-        <p>One rate for every kind of event, wherever it is. The booking form shows your estimated total as you fill it in.</p>
+        <p>One rate for every kind of event. Travel is added by distance, and the booking form shows your estimated total, travel included, as you fill it in.</p>
         <a class="btn btn-main" href="#book">Check availability</a>
       </div>
       <div class="licence-card">
@@ -174,6 +175,25 @@
           <div><dt>Experience</dt><dd><span data-cfg="years">12</span> years</dd></div>
         </dl>
         <a id="abcProof" class="proof-link" href="#" target="_blank" rel="noopener" hidden>View certificate</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rates travel" id="travel" aria-labelledby="travel-h">
+    <div class="wrap">
+      <div class="rate-card">
+        <h2 class="plain" id="travel-h">Travel anywhere</h2>
+        <p>Travel is priced by how far your event is from <span data-cfg="travel.home.name">Los Angeles</span>. The further it is, the more it adds. Type your city in the booking form and it works out the cost.</p>
+        <dl class="tab" id="travelRules">
+          <div><dt><span>Within <span class="tr-free">25</span> miles</span></dt><dd>No travel charge</dd></div>
+          <div><dt><span>Up to <span class="tr-drive">300</span> miles</span></dt><dd><span class="tr-mile">70¢</span> a mile, there and back<small>plus a hotel night past <span class="tr-over">150</span> miles</small></dd></div>
+          <div><dt><span>Over <span class="tr-drive">300</span> miles</span></dt><dd>Flight, hotel, travel days and meals</dd></div>
+        </dl>
+      </div>
+      <div class="licence-card">
+        <h3>What travel usually adds</h3>
+        <dl class="tab" id="travelExamples"></dl>
+        <p class="travel-note">Estimates. If you'd rather book the flight and hotel yourself, they come off the quote. For events abroad, any local permits are arranged by the host.</p>
       </div>
     </div>
   </section>
@@ -212,7 +232,8 @@
           </div>
           <div class="field f-3">
             <label for="f-where">Where is it?</label>
-            <input id="f-where" name="Location" type="text" placeholder="City, country" autocomplete="address-level2" required>
+            <input id="f-where" name="Location" type="text" placeholder="Start typing a city" autocomplete="off" list="placeList" required>
+            <datalist id="placeList"></datalist>
           </div>
           <div class="field f-2">
             <label for="f-name">Your name</label>
@@ -237,7 +258,9 @@
 
           <div class="f-6 total">
             <p><small>Estimate</small><br><span id="totalMath">4 hours × $50</span></p>
-            <output id="total" for="f-hours">$200</output>
+            <output id="total" for="f-hours f-where">$200</output>
+            <dl class="tab total-lines" id="totalLines"></dl>
+            <p class="total-note" id="totalNote">Type the event's city above to add travel.</p>
           </div>
           <div class="f-6 submit-row">
             <button class="btn btn-main" id="submitBtn" type="submit">Send request</button>

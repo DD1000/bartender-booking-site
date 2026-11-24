@@ -348,6 +348,20 @@ h2.plain {
 .total p { margin: 0; }
 .total output { font: var(--total-weight, 800) calc(2.4rem * var(--total-fs, 1)) / 1 var(--total-font, var(--display)); color: var(--ticket-head, var(--ticket-ink)); }
 .total small { color: var(--ticket-dim); }
+.total-lines { flex-basis: 100%; max-width: none; margin: 4px 0 0; font-size: .95rem; }
+.total-lines:empty { display: none; }
+.total-lines div { padding: 3px 0; }
+.total-lines dt { white-space: normal; color: var(--ticket-dim); }
+.total-lines dt::after { border-bottom-color: var(--field-border); }
+.total-note { flex-basis: 100%; font-size: .9rem; color: var(--ticket-dim); }
+
+/* ── travel ─────────────────────────────── */
+.rates.travel { padding-top: 0; }
+.travel .rate-card p { margin-top: 14px; }
+.travel .tab { margin: 0; max-width: none; }
+.travel .tab dt { white-space: normal; }
+#travelRules dt { white-space: nowrap; }
+.travel-note { margin: 18px 0 0; color: var(--ink-dim); font-size: .92rem; }
 .submit-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .ticket .btn-main { border-color: var(--ticket-btn, var(--ticket-ink)); background: var(--ticket-btn, var(--ticket-ink)); color: var(--ticket-btn-ink, var(--ticket-bg)); }
 .ticket .btn-main[disabled] { opacity: .6; cursor: progress; }

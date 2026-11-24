@@ -12,6 +12,14 @@ It's plain HTML. No build step and nothing to install.
    - To keep your real email out of the page source, FormSubmit's activation email also gives you a random alias string. Paste that into `email` in place of your address.
 4. **Optional:** add a Calendly/Cal.com link (`calendarLink`), your Instagram, or a scan of your certificate (`abc.proof`).
 
+## Travel pricing
+
+Travel is priced by distance from home, set in `travel` in `config.js` (home city and its coordinates, and every number).
+- Within `freeMiles`: nothing. Up to `driveUpTo`: `perMile` on the road miles there and back, plus a hotel night past `overnightOver`.
+- Further: a flight estimate (`flightBase` + `flightPerMile` × miles), hotel nights, travel days and meals.
+- As a client types the event's city, the booking form looks it up with Open-Meteo's free place search (no key), works out the distance and shows each cost. The request email carries the travel total and the breakdown.
+- If the lookup fails or the place isn't picked, the form says travel will be quoted by email.
+
 ## Styles
 
 The site comes in 10 variations on one dark cocktail-bar look: Cocktail Bar (the default), Negroni, Absinthe, Midnight Martini, Bourbon, Champagne Noir, Tiki Torch, Velvet Lounge, Mezcal Smoke and Rosé Last Call.

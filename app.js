@@ -287,12 +287,98 @@
   const today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
   $('#f-date').min = today.toISOString().slice(0, 10);
 
+  // ── travel: priced by distance from home ────
+  const T = Object.assign({
+    home: { name: 'Los Angeles', lat: 34.0522, lon: -118.2437 }, freeMiles: 25, driveUpTo: 300, perMile: 0.7,
+    roadFactor: 1.25, overnightOver: 150, hotelNight: 150, flightBase: 150, flightPerMile: 0.15,
+    longHaulOver: 2500, travelDayFee: 150, perDiem: 60,
+  }, S.travel);
+  const miles = (a, b) => { // straight-line distance on the globe
+    const r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLon = (b.lon - a.lon) * r;
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dLon / 2) ** 2;
+    return 3958.8 * 2 * Math.asin(Math.sqrt(h));
+  };
+  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  const cents = (n) => (n < 1 ? `${Math.round(n * 100)}¢` : money(n));
+  function travelCost(mi) {
+    const lines = [];
+    if (mi <= T.freeMiles) return { lines, total: 0 };
+    if (mi <= T.driveUpTo) {
+      const road = Math.round((mi - T.freeMiles) * T.roadFactor * 2);
+      lines.push([`Driving, ${road.toLocaleString()} miles there and back × ${cents(T.perMile)}`, Math.round(road * T.perMile)]);
+      if (mi > T.overnightOver) lines.push(['Hotel, 1 night', T.hotelNight]);
+    } else {
+      const days = mi > T.longHaulOver ? 2 : 1, nights = days + 1;
+      lines.push(['Round-trip flight (estimate)', Math.round((T.flightBase + T.flightPerMile * mi) / 10) * 10]);
+      lines.push([`Hotel, ${plural(nights, 'night')}`, nights * T.hotelNight]);
+      lines.push([days === 1 ? 'Travel day' : 'Travel days, one each way', days * T.travelDayFee]);
+      lines.push([`Meals, ${plural(nights + 1, 'day')}`, (nights + 1) * T.perDiem]);
+    }
+    return { lines, total: lines.reduce((s, l) => s + l[1], 0) };
+  }
+
+  // the Travel section: rules and examples from config.js
+  $('.tr-free').textContent = T.freeMiles; $$('.tr-drive').forEach((e) => { e.textContent = T.driveUpTo; });
+  $('.tr-mile').textContent = cents(T.perMile); $('.tr-over').textContent = T.overnightOver;
+  const EXAMPLES = [[10, 'Across town'], [120, 'A road trip'], [250, 'A long drive'], [1000, 'A short flight'], [5500, 'Another continent']];
+  $('#travelExamples').innerHTML = EXAMPLES.map(([mi, what]) => {
+    const t = travelCost(mi).total;
+    return `<div><dt><span>${what}, ${mi.toLocaleString()} mi</span></dt><dd>${t ? 'about ' + money(t) : 'Nothing'}</dd></div>`;
+  }).join('');
+
+  // the event's city: suggestions from Open-Meteo's free place search (no key needed)
+  const where = $('#f-where'), placeList = $('#placeList');
+  let places = new Map(), place = null, lookTimer, lookSeq = 0;
+  const placeName = (p) => [p.name, p.admin1 !== p.name ? p.admin1 : '', p.country].filter(Boolean).join(', ');
+  function choosePlace() {
+    const v = where.value.trim().toLowerCase();
+    place = places.get(v) || [...places.values()].find((p) => placeName(p).toLowerCase().startsWith(v)) || null;
+    if (!v) place = null;
+    updateTotal();
+  }
+  where.addEventListener('input', () => {
+    choosePlace();
+    clearTimeout(lookTimer);
+    const q = where.value.split(',')[0].trim();
+    if (q.length < 2) return;
+    lookTimer = setTimeout(async () => {
+      const seq = ++lookSeq;
+      try {
+        const r = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(q)}&count=6&language=en&format=json`);
+        const j = await r.json();
+        if (seq !== lookSeq) return; // a newer search is on its way
+        const found = (j.results || []).filter((p) => p.latitude != null);
+        if (!found.length) return;
+        places = new Map(found.map((p) => [placeName(p).toLowerCase(), { ...p, lat: p.latitude, lon: p.longitude }]));
+        placeList.innerHTML = found.map((p) => `<option value="${escapeHtml(placeName(p))}"></option>`).join('');
+        choosePlace();
+      } catch {} // offline or blocked: travel is simply quoted by email
+    }, 280);
+  });
+  where.addEventListener('change', choosePlace);
+
   function updateTotal() {
     const h = parseFloat($('#f-hours').value);
-    const ok = h > 0;
-    $('#totalMath').textContent = ok ? `${h} hour${h === 1 ? '' : 's'} × ${money(rate)}` : `${money(rate)} an hour`;
-    $('#total').textContent = ok ? money(h * rate) : '–';
-    return ok ? money(h * rate) : '';
+    const ok = h > 0, work = ok ? h * rate : 0;
+    const lines = ok ? [[`${plural(h, 'hour')} × ${money(rate)}`, work]] : [];
+    let note = 'Type the event\'s city above to add travel.', travel = null;
+    if (place) {
+      const mi = Math.round(miles(T.home, place));
+      travel = travelCost(mi);
+      const label = `${placeName(place)}, about ${mi.toLocaleString()} miles from ${T.home.name}`;
+      note = travel.total ? `Travel to ${label}. Not the right place? Pick it from the list.` : `${label}: no travel charge.`;
+      lines.push(...travel.lines);
+    } else if (where.value.trim()) note = 'Travel for that place will be quoted by email. Pick a city from the list to see it now.';
+    const sum = lines.reduce((s, l) => s + l[1], 0);
+    $('#totalMath').textContent = !ok ? `${money(rate)} an hour` : travel && travel.total ? 'Bartending plus travel' : lines[0][0];
+    $('#total').textContent = ok ? money(sum) : '–';
+    $('#totalLines').innerHTML = lines.length > 1 ? lines.map(([w, v]) => `<div><dt>${escapeHtml(w)}</dt><dd>${money(v)}</dd></div>`).join('') : '';
+    $('#totalNote').textContent = note;
+    return {
+      total: ok ? money(sum) : '',
+      travel: place ? `${travel.total ? money(travel.total) : 'none'} (${placeName(place)}, ~${Math.round(miles(T.home, place)).toLocaleString()} mi)` : 'to quote',
+      breakdown: lines.map(([w, v]) => `${w}: ${money(v)}`).join('; '),
+    };
   }
   $('#f-hours').addEventListener('input', updateTotal);
   updateTotal();
@@ -319,9 +405,12 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending request…';
     say('');
+    const est = updateTotal();
     const payload = {
       ...data,
-      Estimate: updateTotal(),
+      Estimate: est.total,
+      Travel: est.travel,
+      Breakdown: est.breakdown,
       _subject: `Bartending request: ${data['Event type']} on ${data['Event date']} in ${data.Location}`,
       _template: 'table',
     };
@@ -333,11 +422,11 @@
       });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || String(j.success) === 'false') throw new Error(j.message || 'send failed');
-      form.reset(); updateTotal();
+      form.reset(); place = null; updateTotal();
       say(`Request sent. I'll reply to ${escapeHtml(data.email)} to confirm the date.`, 'ok');
     } catch {
       const body = Object.entries(data).filter(([k, v]) => v && k !== '_honey').map(([k, v]) => `${k}: ${v}`).join('\n');
-      const mail = `mailto:${S.email}?subject=${encodeURIComponent('Bartending request')}&body=${encodeURIComponent(body + '\nEstimate: ' + updateTotal())}`;
+      const mail = `mailto:${S.email}?subject=${encodeURIComponent('Bartending request')}&body=${encodeURIComponent(body + '\nEstimate: ' + est.total + '\nTravel: ' + est.travel + '\n' + est.breakdown)}`;
       say(`The request didn't go through. Check your connection and try again, or <a href="${mail}">send it by email instead</a>.`, 'err');
     } finally {
       submitBtn.disabled = false;
