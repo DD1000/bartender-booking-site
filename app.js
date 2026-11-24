@@ -368,6 +368,7 @@
       const label = `${placeName(place)}, about ${mi.toLocaleString()} miles from ${T.home.name}`;
       note = travel.total ? `Travel to ${label}. Not the right place? Pick it from the list.` : `${label}: no travel charge.`;
       lines.push(...travel.lines);
+      if (travel.lines.some(([w]) => w.startsWith('Round-trip flight'))) note += ' Flight prices change every day and may vary: I\'ll email and text you the actual fare and your final total before anything is booked.';
     } else if (where.value.trim()) note = 'Travel for that place will be quoted by email. Pick a city from the list to see it now.';
     const sum = lines.reduce((s, l) => s + l[1], 0);
     $('#totalMath').textContent = !ok ? `${money(rate)} an hour` : travel && travel.total ? 'Bartending plus travel' : lines[0][0];
@@ -423,7 +424,7 @@
       const j = await r.json().catch(() => ({}));
       if (!r.ok || String(j.success) === 'false') throw new Error(j.message || 'send failed');
       form.reset(); place = null; updateTotal();
-      say(`Request sent. I'll reply to ${escapeHtml(data.email)} to confirm the date.`, 'ok');
+      say(`Request sent. I'll email ${escapeHtml(data.email)} and text you to confirm the date and your final price.`, 'ok');
     } catch {
       const body = Object.entries(data).filter(([k, v]) => v && k !== '_honey').map(([k, v]) => `${k}: ${v}`).join('\n');
       const mail = `mailto:${S.email}?subject=${encodeURIComponent('Bartending request')}&body=${encodeURIComponent(body + '\nEstimate: ' + est.total + '\nTravel: ' + est.travel + '\n' + est.breakdown)}`;
