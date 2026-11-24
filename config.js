@@ -38,7 +38,7 @@ window.SITE = {
   // Travel: priced by how far the event is from home, worked out as the client types their city.
   travel: {
     // Where trips start. lat/lon: right-click the spot in Google Maps and copy the two numbers.
-    home: { name: "Los Angeles", lat: 34.0522, lon: -118.2437 },
+    home: { name: "Cleveland, TN", lat: 35.1595, lon: -84.8766 },
     freeMiles: 25,        // no travel charge this close to home
     driveUpTo: 300,       // up to here it's a drive; further, it's a flight
     perMile: 0.70,        // driving, charged on the road miles there and back past freeMiles
