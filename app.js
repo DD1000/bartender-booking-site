@@ -291,7 +291,7 @@
   const T = Object.assign({
     home: { name: 'Los Angeles', lat: 34.0522, lon: -118.2437 }, freeMiles: 25, driveUpTo: 300, perMile: 0.7,
     roadFactor: 1.25, overnightOver: 150, hotelNight: 150, flightBase: 150, flightPerMile: 0.15,
-    longHaulOver: 2500, travelDayFee: 150, perDiem: 60,
+    longHaulOver: 2500, travelDayFee: 0, perDiem: 0,
   }, S.travel);
   const miles = (a, b) => { // straight-line distance on the globe
     const r = Math.PI / 180, dLat = (b.lat - a.lat) * r, dLon = (b.lon - a.lon) * r;
@@ -311,8 +311,8 @@
       const days = mi > T.longHaulOver ? 2 : 1, nights = days + 1;
       lines.push(['Round-trip flight (estimate)', Math.round((T.flightBase + T.flightPerMile * mi) / 10) * 10]);
       lines.push([`Hotel, ${plural(nights, 'night')}`, nights * T.hotelNight]);
-      lines.push([days === 1 ? 'Travel day' : 'Travel days, one each way', days * T.travelDayFee]);
-      lines.push([`Meals, ${plural(nights + 1, 'day')}`, (nights + 1) * T.perDiem]);
+      if (T.travelDayFee) lines.push([days === 1 ? 'Travel day' : 'Travel days, one each way', days * T.travelDayFee]);
+      if (T.perDiem) lines.push([`Meals, ${plural(nights + 1, 'day')}`, (nights + 1) * T.perDiem]);
     }
     return { lines, total: lines.reduce((s, l) => s + l[1], 0) };
   }

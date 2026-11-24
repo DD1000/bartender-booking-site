@@ -48,8 +48,8 @@ window.SITE = {
     flightBase: 150,      // flight estimate: this plus flightPerMile × miles (round trip)
     flightPerMile: 0.15,
     longHaulOver: 2500,   // flights further than this take a travel day each way instead of one
-    travelDayFee: 150,    // per day spent travelling
-    perDiem: 60,          // meals, per day away
+    travelDayFee: 0,      // per day spent travelling (0 = not charged)
+    perDiem: 0,           // meals, per day away (0 = not charged)
   },
 
   // Optional: shown in the footer if filled in.

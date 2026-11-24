@@ -16,7 +16,7 @@ It's plain HTML. No build step and nothing to install.
 
 Travel is priced by distance from home, set in `travel` in `config.js` (home city and its coordinates, and every number).
 - Within `freeMiles`: nothing. Up to `driveUpTo`: `perMile` on the road miles there and back, plus a hotel night past `overnightOver`.
-- Further: a flight estimate (`flightBase` + `flightPerMile` × miles), hotel nights, travel days and meals.
+- Further: a flight estimate (`flightBase` + `flightPerMile` × miles), hotel nights, and travel days and meals when `travelDayFee` or `perDiem` is above 0 (both 0 now).
 - As a client types the event's city, the booking form looks it up with Open-Meteo's free place search (no key), works out the distance and shows each cost. The request email carries the travel total and the breakdown.
 - If the lookup fails or the place isn't picked, the form says travel will be quoted by email.
 
