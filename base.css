@@ -120,6 +120,7 @@ a { color: var(--link, var(--accent)); }
 
 .tab { margin: 0 0 32px; padding: 0; max-width: 460px; }
 .tab div { display: flex; align-items: baseline; gap: 10px; padding: 7px 0; }
+.tab div[hidden] { display: none; }
 .tab dt { flex: 1; display: flex; align-items: baseline; gap: 10px; color: var(--ink-dim); white-space: nowrap; }
 .tab dt::after { content: ""; flex: 1; min-width: 16px; border-bottom: 2px dotted var(--leader, var(--line)); transform: translateY(-4px); }
 .tab dd { margin: 0; font-weight: 600; text-align: right; }

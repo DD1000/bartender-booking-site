@@ -28,9 +28,9 @@ window.SITE = {
 
   // Your ABC licence / RBS certification details.
   abc: {
-    number: "RBS-0000000",
-    issuer: "California ABC (RBS certified)",
-    expires: "MM/YYYY",
+    number: "26A-CPER-SER-035160",
+    issuer: "Tennessee ABC (server permit)",
+    expires: "",   // e.g. "06/2028"; left empty, the "Valid through" line is hidden
     // Optional: a picture or PDF of the certificate in this folder, e.g. "abc-certificate.pdf"
     proof: "",
   },

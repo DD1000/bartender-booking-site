@@ -20,6 +20,7 @@
   showLink($('#calLink'), S.calendarLink);
   showLink($('#abcProof'), S.abc && S.abc.proof);
   showLink($('#insta'), S.instagram);
+  if (S.abc && S.abc.expires) $('#abcExpires').hidden = false;
 
   // ── photo, in the hero and on the profile card ──
   if (S.photo) {
